@@ -1,0 +1,21 @@
+.widget-booking {
+    box-shadow: 10px 10px 36px rgba(0, 0, 0, 0.08);
+}
+
+.btn-confirm {
+    background-color: #f7921e;
+    color: #fff;
+
+    &:hover {
+        color: #fff;
+    }
+
+    &:active {
+        opacity: 0.8;
+        color: #fff;
+    }
+}
+
+.btn-label {
+    font-weight: bold;
+}

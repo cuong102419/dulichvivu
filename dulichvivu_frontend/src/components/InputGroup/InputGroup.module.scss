@@ -1,0 +1,38 @@
+.input-group {
+    display: flex;
+    align-items: center;
+
+    .label {
+        display: block;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 34px;
+        position: absolute;
+        cursor: default;
+    }
+
+    .input {
+        width: 60%;
+        height: 34px;
+        padding: 10px;
+        padding-left: 46px;
+        border: none;
+        border-bottom: 1px solid #999;
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid #999;
+        }
+    }
+
+    .toggle-btn {
+        background: transparent;
+        opacity: 0.7;
+        &:active {
+            opacity: 0.6;
+        }
+    }
+}

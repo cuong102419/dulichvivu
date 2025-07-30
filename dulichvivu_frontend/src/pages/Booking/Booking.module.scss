@@ -1,0 +1,36 @@
+.content {
+    padding: 25px 23px;
+    background-color: #f6f8fa;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    cursor: default;
+}
+
+.checkbox {
+    width: 28px;
+    height: 20px;
+    accent-color: #004395;
+}
+
+.clause {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: default;
+}
+
+.link-clause {
+    text-decoration: underline;
+    color: #013879;
+
+    &:hover {
+        text-decoration: underline;
+        color: #013879;
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,158 @@
+.main {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.wrapper {
+    padding: 75px 0;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 75px 0;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .image-login,
+    .form-login {
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        width: 100%;
+    }
+
+    .image-login {
+        margin-bottom: 30px;
+    }
+
+    .btn-login {
+        padding: 10px 12px;
+    }
+}
+
+.image-login {
+    flex: 1;
+    text-align: center;
+
+    figure {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .link {
+        &:hover {
+            color: #004be1;
+            text-decoration: underline;
+        }
+    }
+}
+
+.form-login {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    h2 {
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+
+    .social {
+        margin-top: auto;
+        text-align: center;
+        display: flex;
+    }
+}
+
+.wrapper-input {
+    margin-bottom: 30px;
+
+    .error {
+        display: block;
+        margin-top: 10px;
+        padding-left: 8px;
+        color: #d40000;
+    }
+}
+
+.btn-login {
+    align-self: self-start;
+    width: auto;
+    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #63ab45;
+    color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    &:active {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-login {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+
+    .social-label {
+        padding-right: 15px;
+    }
+}
+
+.social-list {
+    display: flex;
+}
+
+.social-google {
+    background: #1da0f2;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.social-facebook {
+    background-color: #0866ff;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.social-google,
+.social-facebook {
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.icon-google,
+.icon-facebook {
+    color: #fff;
+}

@@ -1,0 +1,20 @@
+.item {
+    border: 1px solid #b7b7b7;
+    padding: 10px;
+}
+
+.payment-label {
+    display: flex !important;
+    justify-content: start !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.img {
+    width: 60px;
+}

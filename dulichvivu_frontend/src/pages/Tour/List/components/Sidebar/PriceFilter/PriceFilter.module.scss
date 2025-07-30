@@ -1,0 +1,61 @@
+.price-filter {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+
+    h3 {
+        margin-bottom: 20px;
+        font-weight: normal;
+    }
+
+    .custom-slider {
+        height: 5px;
+        background-color: #e0eedf;
+        border-radius: 4px;
+        position: relative;
+        margin-bottom: 20px;
+
+        .custom-track {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .custom-track:nth-child(1) {
+            // bên trái
+            background-color: #e0eedf;
+            flex-grow: 1;
+        }
+
+        .custom-track:nth-child(2) {
+            // ở giữa
+            background-color: #63ab45;
+            flex-grow: 1;
+        }
+
+        .custom-track:nth-child(3) {
+            // bên phải
+            background-color: #e0eedf;
+            flex-grow: 1;
+        }
+
+        .custom-thumb {
+            width: 12px;
+            height: 12px;
+            background-color: #63ab45;
+            border-radius: 50%;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+        }
+    }
+
+    .price-value {
+        font-size: 16px;
+        text-align: left;
+        strong {
+            font-weight: bold;
+        }
+    }
+}

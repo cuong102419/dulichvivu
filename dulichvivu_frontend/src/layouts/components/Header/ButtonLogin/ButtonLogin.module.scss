@@ -1,0 +1,102 @@
+.btn-register {
+    padding: 5px 20px !important;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.btn-login {
+    padding: 5px 20px !important;
+    font-size: 10px;
+}
+
+.wrapper-avatar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 2em;
+    height: 2em;
+    margin-left: 10px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.menu-dropdown {
+    width: 230px;
+    background: #fff;
+    box-shadow: 0 -4px 32px #0003;
+    border-radius: 10px;
+    transition: all ease-in-out .3s;
+    animation: _fadeIn_qhx2q_1 ease .3s;
+
+    ul {
+        padding: 8px 24px;
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.link-item {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: #666;
+    font-size: 0.9rem;
+
+    &:hover {
+        color: #292929;
+    }
+
+    .icon {
+        margin-right: 10px;
+    }
+}
+
+.avatar-tippy {
+    display: flex;
+    align-items: center;
+
+    .avatar-box {
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+            width: 3em;
+            height: 3em;
+        }
+    }
+}
+
+.info {
+    margin-left: 10px;
+
+    .name {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .email {
+        font-size: 0.6rem;
+    }
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+    color: #666;
+    text-align: left;
+    font-size: 0.9rem;
+
+    .icon {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        color: #292929;
+    }
+}

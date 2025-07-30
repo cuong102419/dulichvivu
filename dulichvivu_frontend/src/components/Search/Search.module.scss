@@ -1,0 +1,43 @@
+.search-filter-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    gap: 15px;
+    overflow: visible;
+    position: relative;
+    margin-top: -50px;
+    z-index: 2;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-right: 1px solid #e9e9e9;
+    min-width: 180px;
+    margin-right: 5px;
+    position: relative;
+}
+
+.label {
+    display: flex;
+
+    .icon {
+        font-size: 18px;
+        color: #444;
+    }
+
+    .title {
+        margin-left: 12px;
+        font-size: 0.9rem;
+        color: #666;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+}
