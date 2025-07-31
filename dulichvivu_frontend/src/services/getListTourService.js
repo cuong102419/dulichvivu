@@ -2,7 +2,7 @@ import * as httpRequest from '~/utils/httpRequest';
 
 export const getListTour = async (page = 1, perPage, area = '') => {
     try {
-        let url = `/tour-list?page=${page}&per_page=${perPage}`;
+        let url = `/tour/list?page=${page}&per_page=${perPage}`;
 
         if (area) {
             url += `&area=${area}`;

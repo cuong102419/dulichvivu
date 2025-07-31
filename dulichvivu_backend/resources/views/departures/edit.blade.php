@@ -20,7 +20,7 @@
                         <p>
                             Cập nhật.
                             @if ($departure->booked > 0)
-                                Vì lịch này đã có người đặt nên chỉ có thể cập nhật tăng số lượng.
+                                Vì lịch này đã được mở nên chỉ có thể cập nhật tăng số lượng.
                             @endif
                         </p>
                     </div>
@@ -37,7 +37,7 @@
                                     <input id="start-date" class="date-picker form-control" name="start_date" type="date"
                                         required="required"
                                         value="{{ old('start_date') ?? $departure->start_date->format('Y-m-d') }}"
-                                        {{ $departure->booked > 0 ? 'disabled' : '' }}>
+                                        {{ $departure->booked > 0 || $departure->status === 'open' ? 'disabled' : '' }}>
                                 </div>
                                 @error('start_date')
                                     <span class="text-danger pt-2">{{ $message }}</span>
@@ -51,7 +51,7 @@
                                     <input id="end-date" class="date-picker form-control" name="end_date" type="date"
                                         required="required"
                                         value="{{ old('end_date') ?? $departure->end_date->format('Y-m-d') }}"
-                                        {{ $departure->booked > 0 ? 'disabled' : '' }}>
+                                        {{ $departure->booked > 0 || $departure->status === 'open' ? 'disabled' : '' }}>
                                 </div>
                                 @error('end_date')
                                     <span class="text-danger pt-1">{{ $message }}</span>
@@ -64,7 +64,7 @@
                                 <div class="col-md-6 col-sm-6 ">
                                     <input class="form-control" name="departure_time" type="time"
                                         value="{{ old('departure_time') ?? \Carbon\Carbon::createFromFormat('H:i:s', $departure->departure_time)->format('H:i') }}"
-                                        {{ $departure->booked > 0 ? 'disabled' : '' }}>
+                                        {{ $departure->booked > 0 || $departure->status === 'open' ? 'disabled' : '' }}>
                                 </div>
                                 @error('departure_time')
                                     <span class="text-danger pt-1">{{ $message }}</span>
@@ -78,7 +78,7 @@
                                     <input type="number" step="0.1" min="0" id="price-adult" name="price_adult"
                                         required="required" class="form-control"
                                         value="{{ old('price_adult') ?? $departure->price_adult }}"
-                                        {{ $departure->booked > 0 ? 'disabled' : '' }}>
+                                        {{ $departure->booked > 0 || $departure->status === 'open' ? 'disabled' : '' }}>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -89,7 +89,7 @@
                                     <input type="number" step="0.1" min="1" id="price-child" name="price_child"
                                         required="required" class="form-control"
                                         value="{{ old('price_child') ?? $departure->price_child }}"
-                                        {{ $departure->booked > 0 ? 'disabled' : '' }}>
+                                        {{ $departure->booked > 0 || $departure->status === 'open' ? 'disabled' : '' }}>
                                 </div>
                             </div>
                             <div class="item form-group">

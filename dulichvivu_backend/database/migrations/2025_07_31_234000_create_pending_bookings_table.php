@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('pending_bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tour_id')->constrained();
             $table->foreignId('departure_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('admin_id')->nullable()->constrained();
 
             $table->date('start_date');
             $table->date('end_date');
@@ -24,11 +23,9 @@ return new class extends Migration
             $table->integer('number_children')->default(0);
             $table->decimal('price_adult');
             $table->decimal('price_child')->default(0);
-            $table->decimal('total_price');
+            $table->double('total_price');
             $table->string('payment_method');
-            $table->string('payment_status')->default('unpaid');
-            $table->string('status')->default('pending');
-            $table->string('note')->nullable();
+            $table->string('note');
 
             $table->timestamps();
         });
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('pending_bookings');
     }
 };

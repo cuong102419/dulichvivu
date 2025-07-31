@@ -88,7 +88,7 @@
                                                                             type="submit" class="btn text-success"><i
                                                                                 class="fa fa-unlock-alt"></i></button>
                                                                     </form>
-                                                                @elseif ($tour->status == 'active')
+                                                                @elseif ($tour->status == 'active' && $tour->departures()->sum('booked') == 0)
                                                                     <form action=""
                                                                         method="post">
                                                                         @csrf

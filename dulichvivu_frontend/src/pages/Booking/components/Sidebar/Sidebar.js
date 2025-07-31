@@ -6,7 +6,7 @@ import { format, parse, parseISO } from 'date-fns';
 
 const cx = classNames.bind(styles);
 
-function Sidebar({ tour, departure, adults, children, onConfirm }) {
+function Sidebar({ tour, departure, adults, children, onConfirm, disabled }) {
     let startDate = '';
     let endDate = '';
     let time = '';
@@ -68,7 +68,7 @@ function Sidebar({ tour, departure, adults, children, onConfirm }) {
                         <h6 className="fw-bold text-danger">{totalPrice.toLocaleString('vi-VN') + ' VNĐ'}</h6>
                     </div>
                 </div>
-                <button className={cx('btn', 'btn-lg', 'btn-confirm', 'style-two', 'w-100', 'mt-15', 'mb-5')} onClick={onConfirm}>
+                <button className={cx('btn', 'btn-lg', 'btn-confirm', 'style-two', 'w-100', 'mt-15', 'mb-5')} disabled={disabled} onClick={onConfirm}>
                     <span className={cx('btn-label')}>Xác nhận</span>
                 </button>
             </div>

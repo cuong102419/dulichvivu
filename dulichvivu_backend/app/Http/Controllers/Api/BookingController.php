@@ -30,4 +30,14 @@ class BookingController extends Controller
             ]
         ]);
     }
+
+    public function pending (Request $request) {
+        $data = $request->all();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Thành công.',
+            'data' => $data
+        ]);
+    }
 }

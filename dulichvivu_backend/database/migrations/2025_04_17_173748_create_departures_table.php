@@ -22,7 +22,7 @@ return new class extends Migration
             $table->double('price_child');
             $table->integer('capacity');
             $table->integer('booked')->default(0);
-            $table->enum('status', ['open', 'closed', 'cancelled'])->default('open');
+            $table->enum('status', ['pending', 'open', 'closed', 'cancelled'])->default('pending');
 
             $table->timestamps();
         });

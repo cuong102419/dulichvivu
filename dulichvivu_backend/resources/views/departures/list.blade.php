@@ -75,7 +75,7 @@
 
                                                             @if ($departure->booked == 0)
                                                                 <form
-                                                                    action="{{ route('departure.cancel', [$tour->id, $departure->id]) }}"
+                                                                    action="{{ route('departure.status', [$tour->id, $departure->id]) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('PUT')
@@ -88,11 +88,20 @@
                                                                                 class="fa fa-times"></i></button>
                                                                     @else
                                                                         <button
-                                                                            onclick="return confirm('Bạn có muốn mở lại lịch trình này không?')"
+                                                                            onclick="return confirm('Bạn có muốn mở lịch trình này không, khi mở bạn chỉ có thể cập nhật tăng số lượng?')"
                                                                             name="action" value="open"
                                                                             class="btn text-success"><i
                                                                                 class="fa fa-check"></i></button>
                                                                     @endif
+                                                                </form>
+                                                                <form action="{{ route('departure.destroy', [$tour->id, $departure->id]) }}" method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button
+                                                                        onclick="return confirm('Bạn có muốn xóa lịch trình này không?')"
+                                                                        class="btn text-danger">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </button>
                                                                 </form>
                                                             @endif
                                                         </div>

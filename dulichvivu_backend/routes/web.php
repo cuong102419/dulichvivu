@@ -55,7 +55,8 @@ Route::middleware('auth:admin')->group(function () {
             Route::post('/create', [DepartureController::class, 'store'])->name('departure.store');
             Route::get('/edit/{departure}', [DepartureController::class, 'edit'])->name('departure.edit');
             Route::put('/update/{departure}', [DepartureController::class, 'update'])->name('departure.update');
-            Route::put('/cancel/{departure}', [DepartureController::class, 'cancel'])->name('departure.cancel');
+            Route::put('/status/{departure}', [DepartureController::class, 'status'])->name('departure.status');
+            Route::delete('/delete/{departure}', [DepartureController::class, 'destroy'])->name('departure.destroy');
         });
 
         Route::prefix('/{tour}/image')->group(function () {

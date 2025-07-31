@@ -126,7 +126,7 @@ function Register() {
         } catch (error) {
             Swal.fire({
                 title: 'Thất bại!',
-                text: error,
+                text: 'Có lỗi xảy ra, vui lòng thử lại sau',
                 icon: 'error',
                 confirmButtonText: 'OK',
             });

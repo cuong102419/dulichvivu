@@ -32,17 +32,39 @@ function Booking() {
     const [note, setNote] = useState('');
     const [agree, setAgree] = useState(false);
     const [paymentMethod, setPaymentMethod] = useState('');
+    const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
+
+    const validateEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        return /^(0\d{9,10}|(\+84)\d{9,10})$/.test(phone.replace(/\s+/g, ''));
+    };
+
+    const validate = () => {
+        return (
+            formData.fullname.trim() &&
+            validateEmail(formData.email) &&
+            validatePhone(formData.phone) &&
+            adults > 0 &&
+            agree &&
+            paymentMethod
+        );
+    };
+
+    useEffect(() => {
+        setIsConfirmDisabled(!validate());
+    }, [formData, adults, children, agree, paymentMethod]);
 
     const handleGuestChange = (type, value) => {
         if (type === 'adults') setAdults(value);
         if (type === 'children') setChildren(value);
     };
 
-
     const handleConfirm = () => {
-        console.log(formData, paymentMethod, tour?.id, departure?.id, adults, children, note, agree, );
-        
-    }
+        console.log(formData, paymentMethod, tour?.id, departure?.id, adults, children, note, agree);
+    };
 
     useEffect(() => {
         if (isLoading) return;
@@ -132,7 +154,14 @@ function Booking() {
                             <PaymentOptions paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
                         </div>
                         <div className="col-lg-4 col-md-8 col-sm-10 rmt-75">
-                            <Sidebar tour={tour} departure={departure} adults={adults} children={children} onConfirm={handleConfirm} />
+                            <Sidebar
+                                tour={tour}
+                                departure={departure}
+                                adults={adults}
+                                children={children}
+                                onConfirm={handleConfirm}
+                                disabled={isConfirmDisabled}
+                            />
                         </div>
                     </div>
                 </div>

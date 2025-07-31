@@ -15,7 +15,7 @@ class DepartureController extends Controller
     {
         $tour = Tour::where('slug', $slug)->firstOrFail();
 
-        $departures = Departure::where('tour_id', $tour->id)->orderBy('start_date', 'asc')->get();
+        $departures = Departure::where('tour_id', $tour->id)->orderBy('start_date', 'desc')->get();
 
         foreach ($departures as $departure) {
             if ($departure->end_date <= now()->toDateString() && $departure->status == 'open') {
@@ -25,6 +25,7 @@ class DepartureController extends Controller
         }
 
         $status = [
+            'pending' => ['value' => 'Chưa mở', 'class' => 'badge-info'],
             'open' => ['value' => 'Đang hoạt động', 'class' => 'badge-success'],
             'closed' => ['value' => 'Kết thúc', 'class' => 'badge-secondary'],
             'cancelled' => ['value' => 'Đã hủy', 'class' => 'badge-danger']
@@ -74,8 +75,8 @@ class DepartureController extends Controller
 
     public function edit($slug, Departure $departure)
     {
-        if ($departure->booked > 0 && $departure->status == 'open') {
-            alert('Lưu ý!', 'Vì tour đã có người đặt trước, bạn chỉ có thể cập nhật số lượng.', 'warning');
+        if ($departure->booked > 0 || $departure->status == 'open') {
+            alert('Lưu ý!', 'Vì tour đã được mở, bạn chỉ có thể cập nhật số lượng.', 'warning');
         }
 
         if ($departure->status == 'closed') {
@@ -89,7 +90,7 @@ class DepartureController extends Controller
 
     public function update(Request $request, Tour $tour, Departure $departure)
     {
-        if ($departure->booked == 0) {
+        if ($departure->booked == 0 && $departure->status != 'open') {
             $start = $request->input('start_date');
             $expectedEnd = Carbon::parse($start)->addDays($tour->total_day)->toDateString();
 
@@ -125,7 +126,7 @@ class DepartureController extends Controller
 
             if ((int)$request->input('capacity') < (int)$departure->capacity) {
                 return back()->withInput()->withErrors([
-                    'capacity' => 'Không thể giảm số lượng chỗ khi đã có khách đặt.'
+                    'capacity' => 'Không thể giảm số lượng chỗ khi tour đã mở.'
                 ]);
             }
 
@@ -136,7 +137,7 @@ class DepartureController extends Controller
         }
     }
 
-    public function cancel(Request $request, Tour $tour, Departure $departure)
+    public function status(Request $request, Tour $tour, Departure $departure)
     {
         if ($departure->booked == 0) {
 
@@ -154,6 +155,17 @@ class DepartureController extends Controller
             }
 
             alert('Thành công!', 'Cập nhật trạng thái thành công.', 'success');
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function destroy(Tour $tour, Departure $departure) {
+        if ($departure->booked == 0) {
+            $departure->delete();
+
+            alert('Thành công!', 'Xóa lịch trình thành công.', 'success');
             return redirect()->back();
         } else {
             return redirect()->back();

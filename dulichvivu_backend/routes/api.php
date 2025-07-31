@@ -31,11 +31,16 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/most-popular', [HomeController::class, 'index']);
 
-Route::prefix('/tour-list')->group(function () {
-    Route::get('/',  [TourController::class, 'index']);
+Route::prefix('/tour')->group(function () {
+    Route::get('/list',  [TourController::class, 'index']);
+    Route::get('/{slug}', [TourController::class, 'detail']);
 });
 
-Route::get('/booking', [BookingController::class, 'index']);
+Route::prefix('/booking')->group(function () {
+    Route::get('/', [BookingController::class, 'index']);
+    Route::post('/pending', [BookingController::class, 'pending']);
 
-Route::get('/tour/{slug}', [TourController::class, 'detail']);
+});
+
+
 
