@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('tour_id')->constrained();
             $table->foreignId('departure_id')->constrained();
             $table->foreignId('user_id')->constrained();
-
+            
+            $table->string('code')->unique();
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('number_adults');
@@ -25,7 +26,7 @@ return new class extends Migration
             $table->decimal('price_child')->default(0);
             $table->double('total_price');
             $table->string('payment_method');
-            $table->string('note');
+            $table->string('note')->nullable();
 
             $table->timestamps();
         });

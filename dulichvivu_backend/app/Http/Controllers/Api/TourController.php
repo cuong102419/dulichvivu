@@ -22,6 +22,13 @@ class TourController extends Controller
                     ->from('images')
                     ->whereColumn('images.tour_id', 'tours.id');
             })
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('departures')
+                    ->whereColumn('departures.tour_id', 'tours.id')
+                    ->where('status', 'open')
+                    ->where('departures.start_date', '>=', now()->addDays(15)->toDateString());
+            })
             ->orderByDesc('id');
 
         if ($area == 'trong-nuoc') {

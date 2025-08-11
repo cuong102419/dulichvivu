@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
-class PendingBooking extends Model
+class Booking extends Model
 {
     use HasFactory;
 
@@ -14,6 +13,7 @@ class PendingBooking extends Model
         'tour_id',
         'departure_id',
         'user_id',
+        'admin_id',
         'code',
         'start_date',
         'end_date',
@@ -23,24 +23,12 @@ class PendingBooking extends Model
         'price_child',
         'total_price',
         'payment_method',
-        'note',
+        'payment_status',
+        'status',
+        'note'
     ];
-
     protected $casts = [
         'start_date' => 'date',
         'end_date' => 'date',
     ];
-
-        protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($booking) {
-            do {
-                $code = 'DLVV' . strtoupper(Str::random(6));
-            } while (self::where('code', $code)->exists());
-
-            $booking->code = $code;
-        });
-    }
 }

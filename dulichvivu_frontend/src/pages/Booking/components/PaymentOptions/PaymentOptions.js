@@ -49,17 +49,17 @@ function PaymentOptions({ paymentMethod, setPaymentMethod }) {
                         <input
                             className={cx('form-check-input', 'radio')}
                             type="radio"
-                            value="vnpay"
+                            value="momo"
                             name="ByActivities"
                             id="activity2"
-                            checked={paymentMethod === 'vnpay'}
+                            checked={paymentMethod === 'momo'}
                             onChange={(e) => setPaymentMethod(e.target.value)}
                         />
                         <label className={cx('payment-label')} htmlFor="activity2">
                             <div>
-                                <img className={cx('img')} src="/assets/images/payment/vnpay.png" alt="" />
+                                <img className={cx('img-momo')} src="/assets/images/payment/momo.png" alt="" />
                             </div>
-                            Thanh toán qua VNPay
+                            Thanh toán qua Momo
                         </label>
                     </li>
                 </ul>

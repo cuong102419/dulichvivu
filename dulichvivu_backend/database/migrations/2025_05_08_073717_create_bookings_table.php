@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('admin_id')->nullable()->constrained();
 
+            $table->string('code')->unique();
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('number_adults');

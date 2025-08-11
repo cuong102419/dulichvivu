@@ -10,6 +10,8 @@ import Note from './components/Note';
 import PaymentOptions from './components/PaymentOptions';
 import useAuth from '~/hooks/useAuth';
 import styles from './Booking.module.scss';
+import { postBooking } from '~/services/postBookingService';
+import Swal from 'sweetalert2';
 
 const cx = classNames.bind(styles);
 
@@ -21,18 +23,70 @@ function Booking() {
     const date = searchParams.get('date');
     const [adults, setAdults] = useState(0);
     const [children, setChildren] = useState(0);
-    const { isLoading, isLog } = useAuth();
+    const { user, isLoading, isLog } = useAuth();
     const navigate = useNavigate();
+    const [note, setNote] = useState('');
+    const [agree, setAgree] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
+    const [isFetching, setIsFetching] = useState(true);
     const [formData, setFormData] = useState({
         fullname: '',
         email: '',
         phone: '',
         address: '',
     });
-    const [note, setNote] = useState('');
-    const [agree, setAgree] = useState(false);
-    const [paymentMethod, setPaymentMethod] = useState('');
-    const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
+
+    useEffect(() => {
+        if (isLoading) return;
+
+        if (!code || !date) {
+            navigate('/');
+            return;
+        }
+
+        if (!isLog) {
+            navigate('/login');
+            return;
+        }
+
+        const fetchTour = async () => {
+            try {
+                const data = await getBooking(code, date);
+                setTour(data.data.tour);
+                setDeparture(data.data.departure);
+            } catch (error) {
+                console.error(error);
+                navigate('/error');
+            } finally {
+                setIsFetching(false);
+            }
+        };
+
+        fetchTour();
+    }, [code, date, isLog, isLoading, navigate]);
+
+    useEffect(() => {
+        const status = searchParams.get('status');
+
+        if (status === 'true') {
+            Swal.fire({
+                title: 'Thành công!',
+                text: 'Thanh toán thành công.',
+                icon: 'success',
+                confirmButtonText: 'OK',
+            });
+        }
+
+        if (status === 'fail') {
+            Swal.fire({
+                title: 'Thất bại!',
+                text: 'Thanh toán không thành công.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+        }
+    }, [searchParams]);
 
     const validateEmail = (email) => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -62,36 +116,69 @@ function Booking() {
         if (type === 'children') setChildren(value);
     };
 
-    const handleConfirm = () => {
-        console.log(formData, paymentMethod, tour?.id, departure?.id, adults, children, note, agree);
+    const handleConfirm = async () => {
+        if (adults + children > (departure?.capacity || 0)) {
+            Swal.fire({
+                title: 'Thông báo!',
+                text: 'Tổng số người vượt quá số chỗ còn lại của chuyến đi.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
+
+        try {
+            const res = await postBooking({
+                tour_id: tour?.id,
+                departure_id: departure?.id,
+                user_id: user?.id,
+                number_adults: adults,
+                number_children: children,
+                payment_method: paymentMethod,
+                note: note,
+                link: window.location.href,
+            });
+
+            if (res.link) {
+                window.location.href = res.link;
+            }
+
+            if (res.status) {
+                setFormData({
+                    fullname: '',
+                    email: '',
+                    phone: '',
+                    address: '',
+                });
+                setAdults(0);
+                setChildren(0);
+                setNote('');
+                setAgree(false);
+                setPaymentMethod('');
+            }
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                title: 'Thất bại!',
+                text: error,
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+
+            return null;
+        }
     };
 
-    useEffect(() => {
-        if (isLoading) return;
-
-        if (!code || !date) {
-            navigate('/');
-            return;
-        }
-
-        if (!isLog) {
-            navigate('/login');
-            return;
-        }
-
-        const fetchTour = async () => {
-            try {
-                const data = await getBooking(code, date);
-                setTour(data.data.tour);
-                setDeparture(data.data.departure);
-            } catch (error) {
-                console.error(error);
-                navigate('/error');
-            }
-        };
-
-        fetchTour();
-    }, [code, date, isLog, isLoading, navigate]);
+    if (isFetching || isLoading) {
+        return (
+            <>
+                <div className="preloader">
+                    <div className="custom-loader"></div>
+                </div>
+                <div className="mt-100 mb-100 text-center">Đang tải dữ liệu</div>
+            </>
+        );
+    }
 
     return (
         <>

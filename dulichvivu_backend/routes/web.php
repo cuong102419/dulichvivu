@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TimelineController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\Payment\MomoController;
+use App\Http\Controllers\Payment\PaypalController;
 use App\Http\Middleware\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +32,10 @@ Route::get('/', [DashboardController::class, 'index'])->middleware([Login::class
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'checkLogin'])->name('checkLogin');
 
+Route::prefix('/booking')->group(function () {
+    Route::get('/momo', [MomoController::class, 'momoConfirm'])->name('momo');
+    Route::get('/paypal', [PaypalController::class, 'confirm'])->name('paypal');
+});
 
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('/profile')->group(function () {

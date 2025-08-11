@@ -64,6 +64,13 @@ function Sidebar({ departures, tour }) {
                     <i className="fal fa-arrow-right"></i>
                 </Link>
             </div>
+            <div className="widget widget-contact">
+                <h5 className="widget-title">Lưu ý</h5>
+                <span>
+                    Bạn cần chọn ngày khởi hành trước 1 tuần, đối với tour quốc tế chọn trước 1 tháng để công ty có thời gian
+                    chuẩn bị thủ tục.
+                </span>
+            </div>
         </div>
     );
 }
