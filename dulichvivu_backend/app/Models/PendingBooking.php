@@ -13,6 +13,7 @@ class PendingBooking extends Model
     protected $fillable = [
         'tour_id',
         'departure_id',
+        'customer_information_id',
         'user_id',
         'code',
         'start_date',

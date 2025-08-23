@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TimelineController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Payment\MomoController;
 use App\Http\Controllers\Payment\PaypalController;
 use App\Http\Middleware\Login;

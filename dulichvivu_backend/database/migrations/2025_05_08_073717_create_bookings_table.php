@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tour_id')->constrained();
             $table->foreignId('departure_id')->constrained();
+            $table->foreignId('customer_information_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('admin_id')->nullable()->constrained();
 

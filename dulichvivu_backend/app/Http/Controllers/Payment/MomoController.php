@@ -127,7 +127,9 @@ class MomoController extends Controller
         $momoTransaction = MomoTransaction::create($momo);
         $pendingBooking = PendingBooking::findOrFail($pendingId);
 
-        if ($data['resultCode'] == 0) {
+        $isSuccess = $data['resultCode'] == 0;
+
+        if ($isSuccess) {
             $departure = Departure::findOrFail($pendingBooking['departure_id']);
 
             $bookingData  = $pendingBooking->toArray();
@@ -141,14 +143,25 @@ class MomoController extends Controller
                 'capacity' => $departure->capacity - $totalPerson,
                 'booked' => $departure->booked + 1
             ]);
-
-            $pendingBooking->delete();
-            
-            return redirect()->away($redirectLink . '&status=true');
         }
-        
+
         $pendingBooking->delete();
-        
-        return redirect()->away($redirectLink . '&status=fail');
+
+        $parsedUrl = parse_url($redirectLink);
+
+        parse_str($parsedUrl['query'] ?? '', $queryParams);
+
+        unset($queryParams['status']);
+
+        $queryParams['code-booking'] = $isSuccess ? $booking->code : 'error';
+
+        $newQuery = http_build_query($queryParams);
+
+        $url = $parsedUrl['scheme'] . '://' . $parsedUrl['host']
+            . (isset($parsedUrl['port']) ? ':' . $parsedUrl['port'] : '')
+            . (isset($parsedUrl['path']) ? $parsedUrl['path'] : '')
+            . ($newQuery ? '?' . $newQuery : '');
+
+        return redirect()->away($url);
     }
 }

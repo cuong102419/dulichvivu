@@ -92,7 +92,9 @@ class PaypalController extends Controller
 
         $redirectLink = LinkRedirect::where('booking_code', $pendingBooking->code)->firstOrFail();
 
-        if (isset($data['status']) && $data['status'] === 'COMPLETED') {
+        $isSuccess = isset($data['status']) && $data['status'] === 'COMPLETED';
+
+        if ($isSuccess) {
 
             $payer_name = $data['payer']['name']['given_name'] . ' ' . $data['payer']['name']['surname'];
 
@@ -121,15 +123,26 @@ class PaypalController extends Controller
                 'capacity' => $departure->capacity - $totalPerson,
                 'booked' => $departure->booked + 1
             ]);
-
-            $pendingBooking->delete();
-            
-            return redirect()->away($redirectLink->url . '&status=true');
-        } else {
-             
-            $pendingBooking->delete();
-
-            return redirect()->away($redirectLink->url . '&status=fail');
         }
+
+        $pendingBooking->delete();
+
+        $parsedUrl = parse_url($redirectLink->url);
+
+        parse_str($parsedUrl['query'] ?? '', $queryParams);
+
+
+        unset($queryParams['status']);
+
+        $queryParams['code-booking'] = $isSuccess ? $booking->code : 'error';
+
+        $newQuery = http_build_query($queryParams);
+
+        $url = $parsedUrl['scheme'] . '://' . $parsedUrl['host']
+            . (isset($parsedUrl['port']) ? ':' . $parsedUrl['port'] : '')
+            . (isset($parsedUrl['path']) ? $parsedUrl['path'] : '')
+            . ($newQuery ? '?' . $newQuery : '');
+
+        return redirect()->away($url);
     }
 }

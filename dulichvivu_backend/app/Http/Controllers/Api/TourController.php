@@ -7,6 +7,7 @@ use App\Models\Tour;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TourController extends Controller
 {
@@ -111,5 +112,45 @@ class TourController extends Controller
                 'timelines' => $timelines
             ]
         ]);
+    }
+
+    public function suggest()
+    {
+        try {
+            $tours = DB::table('tours')
+                ->join('images', 'images.tour_id', '=', 'tours.id')
+                ->join('departures', 'departures.tour_id', '=', 'tours.id')
+                ->select(
+                    'tours.id',
+                    'tours.title',
+                    'tours.destination',
+                    'tours.slug',
+                    DB::raw('MIN(images.image_url) as image_url'),
+                    DB::raw('SUM(departures.booked) as total_booked')
+                )
+                ->groupBy('tours.id', 'tours.title', 'tours.destination', 'tours.slug')
+
+                ->orderByDesc('total_booked')
+                ->limit(3)
+                ->get();
+
+            $tours = $tours->map(function ($item) {
+                if ($item->image_url) {
+                    $item->image_url = Storage::url($item->image_url);
+                }
+                return $item;
+            });
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Thành công.',
+                'data' => $tours
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Thất bại.'
+            ], 500);
+        }
     }
 }

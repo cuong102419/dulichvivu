@@ -67,21 +67,21 @@ function Booking() {
     }, [code, date, isLog, isLoading, navigate]);
 
     useEffect(() => {
-        const status = searchParams.get('status');
+        const codeBooking = searchParams.get('code-booking');
 
-        if (status === 'true') {
+        if (codeBooking != null) {
             Swal.fire({
                 title: 'Thành công!',
-                text: 'Thanh toán thành công.',
+                text: 'Đặt tour thành công.',
                 icon: 'success',
                 confirmButtonText: 'OK',
             });
         }
 
-        if (status === 'fail') {
+        if (codeBooking === 'error') {
             Swal.fire({
                 title: 'Thất bại!',
-                text: 'Thanh toán không thành công.',
+                text: 'Đặt tour không thành công.',
                 icon: 'error',
                 confirmButtonText: 'OK',
             });
@@ -129,6 +129,10 @@ function Booking() {
 
         try {
             const res = await postBooking({
+                fullname: formData.fullname,
+                email: formData.email,
+                phone: formData.phone,
+                address: formData.address,
                 tour_id: tour?.id,
                 departure_id: departure?.id,
                 user_id: user?.id,
@@ -139,11 +143,11 @@ function Booking() {
                 link: window.location.href,
             });
 
-            if (res.link) {
+            if (res?.link) {
                 window.location.href = res.link;
             }
 
-            if (res.status) {
+            if (res?.status) {
                 setFormData({
                     fullname: '',
                     email: '',

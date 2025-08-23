@@ -2,6 +2,7 @@ const routes = {
     home: '/',
     tourList: '/tour',
     tourDetail: '/tour/:slug',
+    tourHistory: '/my-tours',
     about: '/about',
     login: '/login',
     register: '/signin',

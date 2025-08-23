@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\TourController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function()  {
     Route::get('/user',[AuthController::class, 'profile']);
     Route::post('/logout',[AuthController::class, 'logout']);
+
+    Route::prefix('/booking')->group(function () {
+        Route::get('/', [BookingController::class, 'index']);
+        Route::post('/pending', [BookingController::class, 'pending']);
+        Route::get('/history', [BookingController::class, 'history']);
+    });
 }); 
 
 Route::post('/signup', [AuthController::class, 'register']);
@@ -32,15 +37,11 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/most-popular', [HomeController::class, 'index']);
 
 Route::prefix('/tour')->group(function () {
+    Route::get('/suggest', [TourController::class, 'suggest']);
     Route::get('/list',  [TourController::class, 'index']);
     Route::get('/{slug}', [TourController::class, 'detail']);
 });
 
-Route::prefix('/booking')->group(function () {
-    Route::get('/', [BookingController::class, 'index']);
-    Route::post('/pending', [BookingController::class, 'pending']);
-
-});
 
 
 

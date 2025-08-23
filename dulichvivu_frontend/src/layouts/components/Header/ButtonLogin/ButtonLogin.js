@@ -63,7 +63,7 @@ function ButtonLogin() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className={cx('link-item')}>
+                                    <Link className={cx('link-item')} to="/my-tours">
                                         <span>
                                             <FontAwesomeIcon className={cx('icon')} icon={faMap} /> Tour đã đặt
                                         </span>
