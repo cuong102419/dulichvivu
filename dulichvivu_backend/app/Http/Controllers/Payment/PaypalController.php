@@ -129,6 +129,8 @@ class PaypalController extends Controller
 
         $parsedUrl = parse_url($redirectLink->url);
 
+        $redirectLink->delete();
+
         parse_str($parsedUrl['query'] ?? '', $queryParams);
 
 

@@ -19,8 +19,11 @@ class DepartureController extends Controller
 
         foreach ($departures as $departure) {
             if ($departure->end_date <= now()->toDateString() && $departure->status == 'open') {
-                $departure->status = 'closed';
-                $departure->save();
+                if ($departure->booked > 0) {
+                    $departure->update(['status' => 'closed']);
+                } else {
+                    $departure->update(['status' => 'cancelled']);
+                }
             }
         }
 

@@ -32,4 +32,29 @@ class Booking extends Model
         'start_date' => 'date',
         'end_date' => 'date',
     ];
+
+    public function tour()
+    {
+        return $this->belongsTo(Tour::class);
+    }
+
+    public function departure()
+    {
+        return $this->belongsTo(Departure::class);
+    }
+
+    public function customerInformation()
+    {
+        return $this->belongsTo(CustomerInformation::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }

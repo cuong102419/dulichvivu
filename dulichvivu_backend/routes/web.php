@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartureController;
 use App\Http\Controllers\Admin\ImageController;
@@ -80,6 +81,14 @@ Route::middleware('auth:admin')->group(function () {
             Route::delete('/delete', [TimelineController::class, 'destroy'])->name('timeline.delete');
         });
     });
+
+    Route::prefix('/booking')->group(function () {
+        Route::get('/', [BookingController::class, 'index'])->name('booking.list');
+        Route::get('/{booking}', [BookingController::class, 'detail'])->name('booking.detail');
+        Route::put('/update/{booking}', [BookingController::class, 'update'])->name('booking.update');
+    });
+
+    Route::put('/refund/{booking}', [BookingController::class, 'refund'])->name('booking.refund');
 
     Route::get('/logout', [AuthController::class, 'logout'])->middleware([Login::class])->name('logout');
 });

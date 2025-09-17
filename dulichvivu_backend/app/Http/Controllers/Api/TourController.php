@@ -52,6 +52,7 @@ class TourController extends Controller
             $departure = DB::table('departures')
                 ->where('tour_id', $tour->id)
                 ->where('start_date', '>=', now()->addDays(7)->toDateString())
+                ->where('status', 'open')
                 ->orderBy('start_date', 'asc')
                 ->limit(1)
                 ->first(['start_date', 'price_adult']);
@@ -99,6 +100,7 @@ class TourController extends Controller
             ->where('capacity', '>', 0)
             ->where('start_date', '>=', $start_date)
             ->where('end_date', '>=', now()->toDateString())
+            ->where('status', 'open')
             ->orderBy('start_date', 'asc')
             ->get(['id', 'start_date', 'end_date', 'departure_time', 'price_adult', 'price_child']);
 
