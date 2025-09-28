@@ -10,6 +10,7 @@ const routes = {
     help: '/help',
     destination: '/destination',
     booking: '/booking',
+    rating: '/rating/:code',
     error: '/*',
 }
 

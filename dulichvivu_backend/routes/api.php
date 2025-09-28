@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\TourController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,14 @@ Route::middleware('auth:sanctum')->group(function()  {
         Route::post('/pending', [BookingController::class, 'pending']);
         Route::get('/history', [BookingController::class, 'history']);
     });
+
+    Route::prefix('/rating')->group(function () {
+        Route::get('/{code}', [ReviewController::class, 'index']);
+        Route::post('/store', [ReviewController::class, 'store']);
+    });
 }); 
+
+Route::get('/reviews/{tourId}', [ReviewController::class, 'list']);
 
 Route::post('/signup', [AuthController::class, 'register']);
 

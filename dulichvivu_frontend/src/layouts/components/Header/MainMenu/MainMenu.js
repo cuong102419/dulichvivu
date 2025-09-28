@@ -41,17 +41,6 @@ function MainMenu() {
                         <li className="active">
                             <Link to="/about">Giới thiệu</Link>
                         </li>
-                        <li className="dropdown">
-                            <Link to="">Điểm đến</Link>
-                            <ul>
-                                <li>
-                                    <Link to="/destination">Trong nước</Link>
-                                </li>
-                                <li>
-                                    <Link to="/destination">Nước ngoài</Link>
-                                </li>
-                            </ul>
-                        </li>
                         <li className="active">
                             <Link to="/contact">Liên hệ</Link>
                         </li>

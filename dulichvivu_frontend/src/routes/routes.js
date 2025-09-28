@@ -11,6 +11,7 @@ import Help from '~/pages/Help';
 import Destination from '~/pages/Destination';
 import Booking from '~/pages/Booking';
 import BookingHistory from '~/pages/BookingHistory';
+import Rating from '~/pages/Rating';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -18,6 +19,7 @@ const publicRoutes = [
     { path: config.routes.tourDetail, component: TourDetail },
     { path: config.routes.tourHistory, component: BookingHistory },
     { path: config.routes.booking, component: Booking },
+    { path: config.routes.rating, component: Rating },
     { path: config.routes.about, component: About },
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },

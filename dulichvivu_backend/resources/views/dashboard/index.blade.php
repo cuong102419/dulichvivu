@@ -10,7 +10,7 @@
         <div class="row justify-content-between w-100" style="display: inline-block;">
             <div class=" top_tiles" style="margin: 10px 0;">
                 <div class="col-md-3 col-sm-3  tile">
-                    <span>Total Sessions</span>
+                    <span>Tổng số tour đang hoạt động</span>
                     <h2>231,809</h2>
                     <span class="sparkline_one" style="height: 160px;">
                         <canvas width="200" height="60"
@@ -18,7 +18,7 @@
                     </span>
                 </div>
                 <div class="col-md-3 col-sm-3  tile">
-                    <span>Total Revenue</span>
+                    <span>Tổng số lượt booking</span>
                     <h2>$ 231,809</h2>
                     <span class="sparkline_one" style="height: 160px;">
                         <canvas width="200" height="60"
@@ -26,7 +26,7 @@
                     </span>
                 </div>
                 <div class="col-md-3 col-sm-3  tile">
-                    <span>Total Sessions</span>
+                    <span>Số người dùng đăng ký</span>
                     <h2>231,809</h2>
                     <span class="sparkline_one" style="height: 160px;">
                         <canvas width="200" height="60"
@@ -34,7 +34,7 @@
                     </span>
                 </div>
                 <div class="col-md-3 col-sm-3  tile">
-                    <span>Total Sessions</span>
+                    <span>Tổng doanh thu</span>
                     <h2>231,809</h2>
                     <span class="sparkline_one" style="height: 160px;">
                         <canvas width="200" height="60"
@@ -46,123 +46,10 @@
         <br />
 
         <div class="row">
-            <div class="col-md-4 col-sm-6 ">
-                <div class="x_panel fixed_height_320">
-                    <div class="x_title">
-                        <h2>App Devices <small>Sessions</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                </div>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <h4>App Versions</h4>
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span>1.5.2</span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w_right w_20">
-                                <span>123k</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span>1.5.3</span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w_right w_20">
-                                <span>53k</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span>1.5.4</span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w_right w_20">
-                                <span>23k</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span>1.5.5</span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w_right w_20">
-                                <span>3k</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span>0.1.5.6</span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w_right w_20">
-                                <span>1k</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 ">
+            <div class="col-md-6 col-sm-6">
                 <div class="x_panel tile fixed_height_320">
                     <div class="x_title">
-                        <h2>Daily users <small>Sessions</small></h2>
+                        <h2>Điểm đến</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -183,14 +70,14 @@
                         <table class="" style="width:100%">
                             <tr>
                                 <th style="width:37%;">
-                                    <p>Top 5</p>
+                                    <p>Tổng hợp tour theo khu vực</p>
                                 </th>
                                 <th>
                                     <div class="col-lg-7 col-md-7 col-sm-7 ">
-                                        <p class="">Device</p>
+                                        <p class="">Khu vực</p>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-5 ">
-                                        <p class="">Progress</p>
+                                        <p class="">Giá trị</p>
                                     </div>
                                 </th>
                             </tr>
@@ -201,37 +88,22 @@
                                 </td>
                                 <td>
                                     <table class="tile_info">
-                                        <tr>
-                                            <td>
-                                                <p><i class="fa fa-square blue"></i>IOS </p>
-                                            </td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p><i class="fa fa-square green"></i>Android </p>
-                                            </td>
-                                            <td>10%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p><i class="fa fa-square purple"></i>Blackberry </p>
-                                            </td>
-                                            <td>20%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p><i class="fa fa-square aero"></i>Symbian </p>
-                                            </td>
-                                            <td>15%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p><i class="fa fa-square red"></i>Others </p>
-                                            </td>
-                                            <td>30%</td>
-                                        </tr>
+                                        @foreach ($destinations as $index => $d)
+                                            <tr>
+                                                <td>
+                                                    {{-- Chọn màu theo thứ tự hoặc theo tên --}}
+                                                    @php
+                                                        $colors = ['aero', 'purple', 'green', 'blue'];
+                                                        $color = $colors[$index % count($colors)];
+                                                    @endphp
+                                                    <p><i class="fa fa-square {{ $color }}"></i> {{ $d->area }}
+                                                    </p>
+                                                </td>
+                                                <td>{{ $d->percentage }}%</td>
+                                            </tr>
+                                        @endforeach
                                     </table>
+
                                 </td>
                             </tr>
                         </table>
@@ -239,55 +111,10 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 ">
-                <div class="x_panel fixed_height_320">
-                    <div class="x_title">
-                        <h2>Profile Settings <small>Sessions</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Settings 1</a>
-                                    <a class="dropdown-item" href="#">Settings 2</a>
-                                </div>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <div class="dashboard-widget-content">
-                            <ul class="quick-list">
-                                <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a></li>
-                                <li><i class="fa fa-thumbs-up"></i><a href="#">Favorites</a></li>
-                                <li><i class="fa fa-calendar-o"></i><a href="#">Activities</a></li>
-                                <li><i class="fa fa-cog"></i><a href="#">Settings</a></li>
-                                <li><i class="fa fa-area-chart"></i><a href="#">Logout</a></li>
-                            </ul>
-
-                            <div class="sidebar-widget">
-                                <h4>Profile Completion</h4>
-                                <canvas width="150" height="80" id="chart_gauge_01" class=""
-                                    style="width: 160px; height: 100px;"></canvas>
-                                <div class="goal-wrapper">
-                                    <span id="gauge-text" class="gauge-value gauge-chart pull-left">0</span>
-                                    <span class="gauge-value pull-left">%</span>
-                                    <span id="goal-text" class="goal-value pull-right">100%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6  widget_tally_box">
+            <div class="col-md-6 col-sm-6">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>User Uptake</h2>
+                        <h2>Phương thức thanh toán</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -306,81 +133,15 @@
                     </div>
                     <div class="x_content">
 
-                        <div id="graph_bar" style="width:100%; height:200px;"></div>
+                        <div id="echart_donut" style="height:350px;"></div>
 
-                        <div class=" bg-white progress_summary">
-
-                            <div class="row">
-                                <div class="progress_title">
-                                    <span class="left">Escudor Wireless 1.0</span>
-                                    <span class="right">This sis</span>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                                <div class="">
-                                    <span>SSD</span>
-                                </div>
-                                <div class="">
-                                    <div class="progress progress_sm">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="89">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" more_info">
-                                    <span>89%</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="progress_title">
-                                    <span class="left">Mobile Access</span>
-                                    <span class="right">Smart Phone</span>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                                <div class="">
-                                    <span>App</span>
-                                </div>
-                                <div class="">
-                                    <div class="progress progress_sm">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="79">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" more_info">
-                                    <span>79%</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="progress_title">
-                                    <span class="left">WAN access users</span>
-                                    <span class="right">Total 69%</span>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                                <div class="">
-                                    <span>Usr</span>
-                                </div>
-                                <div class="">
-                                    <div class="progress progress_sm">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="69">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" more_info">
-                                    <span>69%</span>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- start of weather widget -->
-            <div class="col-md-4 col-sm-6 ">
+            <div class="col-md-6 col-sm-6 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Today's Weather <small>Sessions</small></h2>
+                        <h2>Tour được đặt nhiều nhất</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -398,117 +159,34 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="temperature"><b>Monday</b>, 07:30 AM
-                                    <span>F</span>
-                                    <span><b>C</b>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="weather-icon">
-                                    <span>
-                                        <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                                    </span>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Tên</th>
+                                    <th>Số chỗ đã đặt</th>
+                                    <th>Số chỗ còn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($topTours as $tour)
+                                    <tr>
+                                        <th scope="row">{{ $tour->id }}</th>
+                                        <td>{{ $tour->title }}</td>
+                                        <td>{{ $tour->departures_sum_booked }}</td>
+                                        <td>{{ $tour->departures_sum_capacity }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="weather-text">
-                                    <h2>Texas
-                                        <br><i>Partly Cloudy Day</i>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="weather-text pull-right">
-                                <h3 class="degrees">23</h3>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-
-                        <div class="row weather-days">
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Mon</h2>
-                                    <h3 class="degrees">25</h3>
-                                    <span>
-                                        <canvas id="clear-day" width="32" height="32">
-                                        </canvas>
-
-                                    </span>
-                                    <h5>15
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Tue</h2>
-                                    <h3 class="degrees">25</h3>
-                                    <canvas height="32" width="32" id="rain"></canvas>
-                                    <h5>12
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Wed</h2>
-                                    <h3 class="degrees">27</h3>
-                                    <canvas height="32" width="32" id="snow"></canvas>
-                                    <h5>14
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Thu</h2>
-                                    <h3 class="degrees">28</h3>
-                                    <canvas height="32" width="32" id="sleet"></canvas>
-                                    <h5>15
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Fri</h2>
-                                    <h3 class="degrees">28</h3>
-                                    <canvas height="32" width="32" id="wind"></canvas>
-                                    <h5>11
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="daily-weather">
-                                    <h2 class="day">Sat</h2>
-                                    <h3 class="degrees">26</h3>
-                                    <canvas height="32" width="32" id="cloudy"></canvas>
-                                    <h5>10
-                                        <i>km/h</i>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
                     </div>
                 </div>
-
             </div>
-            <!-- end of weather widget -->
-
-            <div class="col-md-4 col-sm-6 ">
-                <div class="x_panel fixed_height_320">
+            <div class="col-md-6 col-sm-6 ">
+                <div class="x_panel">
                     <div class="x_title">
-                        <h2>Incomes <small>Sessions</small></h2>
+                        <h2>Đơn đặt mới</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -526,28 +204,370 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <div class="dashboard-widget-content">
-                            <ul class="quick-list">
-                                <li><i class="fa fa-bars"></i><a href="#">Subscription</a></li>
-                                <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
-                                <li><i class="fa fa-support"></i><a href="#">Help Desk</a> </li>
-                                <li><i class="fa fa-heart"></i><a href="#">Donations</a> </li>
-                            </ul>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Họ tên</th>
+                                    <th>Tour</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($newBookings as $booking)
+                                    <tr>
+                                        <th scope="row">{{ $booking->id }}</th>
+                                        <td>{{ $booking->customerInformation->fullname }}</td>
+                                        <td>{{ $booking->tour->title }}</td>
+                                        <td>{{ number_format($booking->total_price, 0, ',', '.') }} VNĐ</td>
+                                        <td>{{ $booking->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                            <div class="sidebar-widget">
-                                <h4>Goal</h4>
-                                <canvas width="150" height="80" id="chart_gauge_02" class=""
-                                    style="width: 160px; height: 100px;"></canvas>
-                                <div class="goal-wrapper">
-                                    <span class="gauge-value pull-left">$</span>
-                                    <span id="gauge-text2" class="gauge-value pull-left">3,200</span>
-                                    <span id="goal-text2" class="goal-value pull-right">$5,000</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function init_chart_doughnut() {
+            var chartData = @json($destinations)
+
+            var labels = chartData.map(item => item.area)
+            var data = chartData.map(item => item.total)
+
+            if (
+                "undefined" != typeof Chart &&
+                (console.log("init_chart_doughnut"), $(".canvasDoughnut").length)
+            ) {
+                var a = {
+                    type: "doughnut",
+                    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [
+                                "#BDC3C7",
+                                "#9B59B6",
+                                "#26B99A",
+                                "#3498DB",
+                            ],
+                            hoverBackgroundColor: [
+                                "#CFD4D8",
+                                "#B370CF",
+                                "#36CAAB",
+                                "#49A9EA",
+                            ],
+                        }, ],
+                    },
+                    options: {
+                        legend: !1,
+                        responsive: !1
+                    },
+                };
+                $(".canvasDoughnut").each(function() {
+                    var e = $(this);
+                    new Chart(e, a);
+                });
+            }
+        }
+
+        function init_echarts() {
+            var chartData = @json($paymentMethods);
+
+            var labels = chartData.map(item => item.payment_method)
+            var data = chartData.map(item => item.total)
+
+            if ("undefined" != typeof echarts) {
+                console.log("init_echarts");
+                var e = {
+                    color: [
+                        "#26B99A",
+                        "#3498DB",
+                        "#9B59B6",
+                    ],
+                    title: {
+                        itemGap: 8,
+                        textStyle: {
+                            fontWeight: "normal",
+                            color: "#408829"
+                        },
+                    },
+                    dataRange: {
+                        color: ["#1f610a", "#97b58d"]
+                    },
+                    toolbox: {
+                        color: ["#408829", "#408829", "#408829", "#408829"]
+                    },
+                    tooltip: {
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                        axisPointer: {
+                            type: "line",
+                            lineStyle: {
+                                color: "#408829",
+                                type: "dashed"
+                            },
+                            crossStyle: {
+                                color: "#408829"
+                            },
+                            shadowStyle: {
+                                color: "rgba(200,200,200,0.3)"
+                            },
+                        },
+                    },
+                    dataZoom: {
+                        dataBackgroundColor: "#eee",
+                        fillerColor: "rgba(64,136,41,0.2)",
+                        handleColor: "#408829",
+                    },
+                    grid: {
+                        borderWidth: 0
+                    },
+                    categoryAxis: {
+                        axisLine: {
+                            lineStyle: {
+                                color: "#408829"
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: ["#eee"]
+                            }
+                        },
+                    },
+                    valueAxis: {
+                        axisLine: {
+                            lineStyle: {
+                                color: "#408829"
+                            }
+                        },
+                        splitArea: {
+                            show: !0,
+                            areaStyle: {
+                                color: [
+                                    "rgba(250,250,250,0.1)",
+                                    "rgba(200,200,200,0.1)",
+                                ],
+                            },
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: ["#eee"]
+                            }
+                        },
+                    },
+                    timeline: {
+                        lineStyle: {
+                            color: "#408829"
+                        },
+                        controlStyle: {
+                            normal: {
+                                color: "#408829"
+                            },
+                            emphasis: {
+                                color: "#408829"
+                            },
+                        },
+                    },
+                    k: {
+                        itemStyle: {
+                            normal: {
+                                color: "#68a54a",
+                                color0: "#a9cba2",
+                                lineStyle: {
+                                    width: 1,
+                                    color: "#408829",
+                                    color0: "#86b379",
+                                },
+                            },
+                        },
+                    },
+                    map: {
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    color: "#ddd"
+                                },
+                                label: {
+                                    textStyle: {
+                                        color: "#c12e34"
+                                    }
+                                },
+                            },
+                            emphasis: {
+                                areaStyle: {
+                                    color: "#99d2dd"
+                                },
+                                label: {
+                                    textStyle: {
+                                        color: "#c12e34"
+                                    }
+                                },
+                            },
+                        },
+                    },
+                    force: {
+                        itemStyle: {
+                            normal: {
+                                linkStyle: {
+                                    strokeColor: "#408829"
+                                }
+                            },
+                        },
+                    },
+                    chord: {
+                        padding: 4,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 1,
+                                    color: "rgba(128, 128, 128, 0.5)",
+                                },
+                                chordStyle: {
+                                    lineStyle: {
+                                        width: 1,
+                                        color: "rgba(128, 128, 128, 0.5)",
+                                    },
+                                },
+                            },
+                            emphasis: {
+                                lineStyle: {
+                                    width: 1,
+                                    color: "rgba(128, 128, 128, 0.5)",
+                                },
+                                chordStyle: {
+                                    lineStyle: {
+                                        width: 1,
+                                        color: "rgba(128, 128, 128, 0.5)",
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    gauge: {
+                        startAngle: 225,
+                        endAngle: -45,
+                        axisLine: {
+                            show: !0,
+                            lineStyle: {
+                                color: [
+                                    [0.2, "#86b379"],
+                                    [0.8, "#68a54a"],
+                                    [1, "#408829"],
+                                ],
+                                width: 8,
+                            },
+                        },
+                        axisTick: {
+                            splitNumber: 10,
+                            length: 12,
+                            lineStyle: {
+                                color: "auto"
+                            },
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: "auto"
+                            }
+                        },
+                        splitLine: {
+                            length: 18,
+                            lineStyle: {
+                                color: "auto"
+                            }
+                        },
+                        pointer: {
+                            length: "90%",
+                            color: "auto"
+                        },
+                        title: {
+                            textStyle: {
+                                color: "#333"
+                            }
+                        },
+                        detail: {
+                            textStyle: {
+                                color: "auto"
+                            }
+                        },
+                    },
+                    textStyle: {
+                        fontFamily: "Arial, Verdana, sans-serif"
+                    },
+                };
+                if ($("#echart_donut").length)
+                    echarts.init(document.getElementById("echart_donut"), e).setOption({
+                        tooltip: {
+                            trigger: "item",
+                            formatter: "{a} <br/>{b} : {c} ({d}%)",
+                        },
+                        calculable: !0,
+                        legend: {
+                            x: "center",
+                            y: "bottom",
+                            data: labels,
+                        },
+                        toolbox: {
+                            show: !0,
+                            feature: {
+                                magicType: {
+                                    show: !0,
+                                    type: ["pie", "funnel"],
+                                    option: {
+                                        funnel: {
+                                            x: "25%",
+                                            width: "50%",
+                                            funnelAlign: "center",
+                                            max: 1548,
+                                        },
+                                    },
+                                },
+                                restore: {
+                                    show: !0,
+                                    title: "Restore"
+                                },
+                                saveAsImage: {
+                                    show: !0,
+                                    title: "Save Image"
+                                },
+                            },
+                        },
+                        series: [{
+                            name: "Phương thức thanh toán",
+                            type: "pie",
+                            radius: ["35%", "55%"],
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: !0
+                                    },
+                                    labelLine: {
+                                        show: !0
+                                    },
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: !0,
+                                        position: "center",
+                                        textStyle: {
+                                            fontSize: "14",
+                                            fontWeight: "normal",
+                                        },
+                                    },
+                                },
+                            },
+                            data: chartData.map(item => ({
+                                value: item.total,
+                                name: item.payment_method
+                            })),
+                        }, ],
+                    });
+            }
+        }
+    </script>
 @endsection

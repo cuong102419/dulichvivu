@@ -139,9 +139,11 @@ class BookingController extends Controller
                 ->join('tours', 'bookings.tour_id', '=', 'tours.id')
                 ->join('departures', 'departures.id', '=', 'bookings.departure_id')
                 ->join('images', 'images.tour_id', '=', 'tours.id')
+                ->leftJoin('reviews', 'reviews.booking_id', '=', 'bookings.id')
                 ->where('bookings.user_id', $userId)
                 ->select(
                     'bookings.id',
+                    'bookings.code',
                     'tours.slug',
                     'tours.title',
                     'tours.duration',
@@ -149,7 +151,8 @@ class BookingController extends Controller
                     'tours.destination',
                     'departures.price_adult',
                     'departures.start_date',
-                    DB::raw('MIN(images.image_url) as image_url')
+                    DB::raw('MIN(images.image_url) as image_url'),
+                    DB::raw('CASE WHEN COUNT(reviews.id) > 0 THEN 1 ELSE 0 END as reviewed')
                 )
                 ->groupBy(
                     'bookings.id',
@@ -175,7 +178,7 @@ class BookingController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Thành công.',
-                'data' => $tours
+                'data' => $tours,
             ]);
         } catch (\Throwable $th) {
             return response()->json([

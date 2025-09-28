@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'phone_number',
         'address',
-        'ip_address',
+        'avatar',
         'is_active',
         'status',
     ];

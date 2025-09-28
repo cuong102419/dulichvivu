@@ -21,6 +21,7 @@ function Detail() {
     useEffect(() => {
         const fetchTour = async () => {
             const data = await getTour(slug);
+            
             setTour(data.data.tour);
             setImages(data.data.image_url);
             setTimelines(data.data.timelines);
@@ -38,8 +39,8 @@ function Detail() {
 
             <Gallery images={images} />
 
-            <Header title={tour?.title} code={tour?.code} />
-
+            <Header title={tour?.title} code={tour?.code} rate={tour?.reviews} />
+        
             <section className="tour-details-page pb-100">
                 <div className="container">
                     <div className="row">
@@ -51,7 +52,7 @@ function Detail() {
 
                             <Regulation rules={tour?.rules} />
 
-                            <Review/>
+                            <Review tourId={tour?.id} />
                         </div>
                         <div className="col-lg-4 col-md-8 col-sm-10 rmt-75">
                             <Sidebar departures={departures} tour={tour} />

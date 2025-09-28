@@ -50,7 +50,7 @@ function FAQ() {
                                 </h5>
                                 <div
                                     id="collapseTwo"
-                                    class="accordion-collapse collapse show"
+                                    class="accordion-collapse collapse"
                                     data-bs-parent="#faq-accordion"
                                 >
                                     <div class="accordion-body">

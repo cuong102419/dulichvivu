@@ -57,4 +57,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+
+    public function review()
+    {
+        return $this->hasOne(Review::class, 'booking_id');
+    }
 }

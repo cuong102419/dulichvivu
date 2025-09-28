@@ -50,6 +50,7 @@ function List() {
         const fetchTour = async () => {
             try {
                 const res = await getTourHistory(user.id, currentPage);
+
                 setTours(res.data.data);
                 setLastPage(res.data.last_page);
             } catch (error) {
@@ -84,10 +85,21 @@ function List() {
                                 <i className="far fa-clock"></i> {new Date(tour.start_date).toLocaleDateString('vi-VN')}
                             </li>
                         </ul>
-                        <div className={cx('destination-footer')}>
-                            <span className={cx('price')}>
-                                <span className="text-danger">{tour.price_adult.toLocaleString('vi-VN')}đ</span>
-                            </span>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div className={cx('destination-footer')}>
+                                <span className={cx('price')}>
+                                    <span className="text-danger">{tour.price_adult.toLocaleString('vi-VN')}đ</span>
+                                </span>
+                            </div>
+                            <div>
+                                {tour.reviewed === 0 ? (
+                                    <Link className="theme-btn" to={`/rating/${tour.code}`}>
+                                        Đánh giá
+                                    </Link>
+                                ) : (
+                                    null
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

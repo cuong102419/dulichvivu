@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password', 60);
             $table->string('phone_number', 15)->nullable();
             $table->string('address')->nullable();
-            $table->string('ip_address', 50);
+            $table->string('avatar');
             $table->enum('is_active', ['yes', 'no'])->default('no');
             $table->enum('status', ['deleted', 'banned'])->nullable();
             $table->rememberToken();
