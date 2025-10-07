@@ -1,10 +1,12 @@
-// import { Link } from 'react-router-dom';
-
 import PriceFilter from './PriceFilter';
 
-function Sidebar({ oneAreaChange }) {
+function Sidebar({ oneAreaChange, onRatingChange }) {
     const handleChange = (e) => {
         oneAreaChange(e.target.value);
+    };
+
+    const handleRatingChange = (e) => {
+        onRatingChange(e.target.value);
     };
 
     return (
@@ -53,47 +55,36 @@ function Sidebar({ oneAreaChange }) {
 
             <div className="widget widget-reviews">
                 <h6 className="widget-title">Đánh giá</h6>
-                <ul className="radio-filter">
+                <ul className="radio-filter" onChange={handleRatingChange}>
                     <li>
-                        <input className="form-check-input" type="radio" defaultChecked name="ByReviews" id="review1" />
-                        <label htmlFor="review1">
-                            <span className="ratting">
-                                <i className="fas fa-star"></i>(5)
-                            </span>
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            value=""
+                            defaultChecked
+                            name="ByReviews"
+                            id="review0"
+                        />
+                        <label htmlFor="review0">
+                            <span className="ratting">Tất cả</span>
                         </label>
                     </li>
-                    <li>
-                        <input className="form-check-input" type="radio" name="ByReviews" id="review2" />
-                        <label htmlFor="review2">
-                            <span className="ratting">
-                                <i className="fas fa-star"></i>(4)
-                            </span>
-                        </label>
-                    </li>
-                    <li>
-                        <input className="form-check-input" type="radio" name="ByReviews" id="review3" />
-                        <label htmlFor="review3">
-                            <span className="ratting">
-                                <i className="fas fa-star"></i>(3)
-                            </span>
-                        </label>
-                    </li>
-                    <li>
-                        <input className="form-check-input" type="radio" name="ByReviews" id="review4" />
-                        <label htmlFor="review4">
-                            <span className="ratting">
-                                <i className="fas fa-star"></i>(2)
-                            </span>
-                        </label>
-                    </li>
-                    <li>
-                        <input className="form-check-input" type="radio" name="ByReviews" id="review5" />
-                        <label htmlFor="review5">
-                            <span className="ratting">
-                                <i className="fas fa-star"></i>(1)
-                            </span>
-                        </label>
-                    </li>
+                    {[5, 4, 3, 2, 1].map((star) => (
+                        <li key={star}>
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                value={star}
+                                name="ByReviews"
+                                id={`review${star}`}
+                            />
+                            <label htmlFor={`review${star}`}>
+                                <span className="ratting">
+                                    <i className="fas fa-star"></i>({star})
+                                </span>
+                            </label>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

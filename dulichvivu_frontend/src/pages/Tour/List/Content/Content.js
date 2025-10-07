@@ -18,6 +18,7 @@ function Content({ filters }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
     const [selectArea, setSelectedArea] = useState('');
+     const [selectedRating, setSelectedRating] = useState('');
     const { user } = useAuth();
     const userId = user ? user.id : null;
     const departureLocation = {
@@ -56,7 +57,7 @@ function Content({ filters }) {
 
     useEffect(() => {
         const fetchTours = async () => {
-            const res = await getListTour(currentPage, 9, selectArea, start, end);
+            const res = await getListTour(currentPage, 9, selectArea, start, end, selectedRating);
             console.log(res);
             
             let allTours = res?.data?.data || [];
@@ -69,14 +70,14 @@ function Content({ filters }) {
         };
 
         fetchTours();
-    }, [currentPage, selectArea, start, end]);
+    }, [currentPage, selectArea, start, end, selectedRating]);
 
     return (
         <section className="tour-grid-page py-100 rel z-1">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-6 col-sm-10 rmb-75">
-                        <Sidebar oneAreaChange={setSelectedArea} />
+                        <Sidebar oneAreaChange={setSelectedArea} onRatingChange={setSelectedRating} />
                     </div>
                     <div className="col-lg-9">
                         <SelectFilter value={shortValue} onChange={setShortValue} />

@@ -17,6 +17,7 @@ class TourController extends Controller
         $area = $request->input('area');
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
+        $rating = $request->input('rating');
 
         $toursQuery = Tour::select('id', 'code', 'slug', 'title', 'type', 'duration', 'area', 'departure_location')
             ->where('status', 'active')
@@ -50,6 +51,9 @@ class TourController extends Controller
             });
         }
 
+        if ($rating) {
+            $toursQuery->where('reviews', '>=', $rating);
+        }
 
         $tours = $toursQuery->paginate($perPage);
 
