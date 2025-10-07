@@ -6,14 +6,14 @@ function Info() {
                     <div className="col-lg-4">
                         <div className="contact-info-content mb-30 rmb-55">
                             <div className="section-title mb-30">
-                                <h2>Let’s Talk Our Expert Travel Guides</h2>
+                                <h2>Hãy nói chuyện với các chuyên gia hướng dẫn du lịch của chúng tôi</h2>
                             </div>
                             <p>
-                                Our dedicated support team is always ready to assist you with any questions or issues,
-                                offering prompt and personalized solutions to meet your needs.
+                                Đội ngũ hỗ trợ tận tâm của chúng tôi luôn sẵn sàng hỗ trợ bạn với bất kỳ câu hỏi hoặc vấn đề nào,
+                                cung cấp các giải pháp nhanh chóng và cá nhân hóa để đáp ứng nhu cầu của bạn.
                             </p>
                             <div className="features-team-box mt-40">
-                                <h6>85+ Expert Team member</h6>
+                                <h6>85+ thành viên trong đội ngũ chuyên gia</h6>
                                 <div className="feature-authors">
                                     <img src="/assets/images/features/feature-author1.jpg" alt="Author" />
                                     <img src="/assets/images/features/feature-author2.jpg" alt="Author" />
@@ -35,7 +35,7 @@ function Info() {
                                         <i className="fas fa-envelope"></i>
                                     </div>
                                     <div className="content">
-                                        <h5>Need Help & Support</h5>
+                                        <h5>Cần hỗ trợ & Giúp đỡ</h5>
                                         <div className="text">
                                             <i className="far fa-envelope"></i>{' '}
                                             <a href="mailto:support@gmail.com">support@gmail.com</a>
@@ -49,7 +49,7 @@ function Info() {
                                         <i className="fas fa-phone"></i>
                                     </div>
                                     <div className="content">
-                                        <h5>Need Any Urgent</h5>
+                                        <h5>Cần hỗ trợ khẩn cấp</h5>
                                         <div className="text">
                                             <i className="far fa-phone"></i>{' '}
                                             <a href="callto:+0001234588">+000 (123) 45 88</a>
@@ -63,24 +63,9 @@ function Info() {
                                         <i className="fas fa-map-marker-alt"></i>
                                     </div>
                                     <div className="content">
-                                        <h5>New York Branch</h5>
+                                        <h5>Địa chỉ văn phòng</h5>
                                         <div className="text">
-                                            <i className="fal fa-map-marker-alt"></i> 55 East 10th Street, New York, NY
-                                            10003, United States
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="contact-info-item">
-                                    <div className="icon">
-                                        <i className="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div className="content">
-                                        <h5>Main Office Address</h5>
-                                        <div className="text">
-                                            <i className="fal fa-map-marker-alt"></i> 55 East 10th Street, New York, NY
-                                            10003, United States
+                                            <i className="fal fa-map-marker-alt"></i> 5470 Trần Đại Nghĩa, Ngũ Hành Sơn, Đà Nẵng
                                         </div>
                                     </div>
                                 </div>

@@ -48,5 +48,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected $appends = ['avatar_url'];
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar
+            ? asset('storage/' . $this->avatar)
+            : asset('images/default-avatar.png');
+    }
+
     // App\Models\User.php
 }

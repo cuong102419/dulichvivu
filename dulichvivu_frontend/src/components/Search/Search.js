@@ -1,66 +1,38 @@
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
-import DownshiftSelect from './DownshiftSelect';
 import DateInput from '../DateInput';
 import { useState } from 'react';
-import { addDays, format } from 'date-fns';
+import { addDays } from 'date-fns';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Search() {
-    const [destination, setDestination] = useState(null);
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+function Search({ onSearch }) {
+    const location = useLocation();
+    const prevState = location.state;
+    const [startDate, setStartDate] = useState(prevState?.startDate || null);
+    const [endDate, setEndDate] = useState(prevState?.endDate || null);
     const today = new Date();
+    const navigate = useNavigate();
 
     const handleStartDate = (date) => {
         setStartDate(date);
         setEndDate(null);
     };
 
-    const handleKeyDown = (e) => {
-        if (['e', 'E', '+', '-', '.', ','].includes(e.key)) {
-            e.preventDefault();
-        }
-    };
-
-    const handlePaste = (e) => {
-        const value = e.clipboardData.getData('text');
-        if (!/^\d+$/.test(value)) {
-            e.preventDefault();
-        }
-    };
-
-    const handleInput = (e) => {
-        const value = e.target.value;
-        e.target.value = value.replace(/\D/g, '');
-    };
-
     const handleSubmit = () => {
-        console.log(
-            'Destination:',
-            destination,
-            'startDate:',
-            format(startDate, 'dd/MM/yyyy'),
-            ' endDate:',
-            format(endDate, 'dd/MM/yyyy'),
-            'Guests:',
-            document.getElementById('guests').value,
-        );
+        const values = {
+            startDate,
+            endDate,
+        };
+        console.log('Tìm kiếm:', values);
+        onSearch && onSearch(values);
+        navigate('/tour', { state: values });
     };
 
     return (
         <div className={cx('container', 'container-1400')}>
             <div className={cx('search-filter-inner')}>
-                <div className={cx('filter-item', 'clearfix')}>
-                    <div className={cx('label')}>
-                        <div className={cx('icon')}>
-                            <i className="fal fa-map-marker-alt"></i>
-                        </div>
-                        <span className={cx('title')}>Địa điểm</span>
-                    </div>
-                    <DownshiftSelect onChange={setDestination} value={destination} />
-                </div>
                 <div className={cx('filter-item', 'clearfix')}>
                     <div className={cx('label')}>
                         <div className={cx('icon')}>

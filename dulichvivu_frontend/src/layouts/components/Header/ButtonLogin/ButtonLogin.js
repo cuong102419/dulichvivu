@@ -43,10 +43,10 @@ function ButtonLogin() {
                     render={(attrs) => (
                         <div className={cx('menu-dropdown')} tabIndex="-1" {...attrs}>
                             <ul>
-                                <Link className={cx('user')}>
+                                <Link to="/profile" className={cx('user')}>
                                     <div className={cx('avatar-tippy')}>
                                         <div className={cx('avatar-box')}>
-                                            <img src={avatar} alt="avatar" />
+                                            <img src={user.avatar ? user.avatar_url : avatar} alt="avatar" />
                                         </div>
                                         <div className={cx('info')}>
                                             <span className={cx('name')}>{user.name}</span>
@@ -56,21 +56,21 @@ function ButtonLogin() {
                                 </Link>
                                 <br />
                                 <li>
-                                    <Link className={cx('link-item')}>
+                                    <Link to="/profile" className={cx('link-item')}>
                                         <span>
                                             <FontAwesomeIcon className={cx('icon')} icon={faUser} /> Trang cá nhân
                                         </span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className={cx('link-item')} to="/my-tours">
+                                    <Link className={cx('link-item')} to="/tours-history">
                                         <span>
                                             <FontAwesomeIcon className={cx('icon')} icon={faMap} /> Tour đã đặt
                                         </span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className={cx('link-item')}>
+                                    <Link to='/tour-favorite' className={cx('link-item')}>
                                         <span>
                                             <FontAwesomeIcon className={cx('icon')} icon={faHeart} /> Tour yêu thích
                                         </span>
@@ -93,7 +93,7 @@ function ButtonLogin() {
                             Xin chào: <strong>{user.name}</strong>
                         </span>
                         <div>
-                            <img className={cx('avatar')} src={avatar} alt="avatar" />
+                            <img className={cx('avatar')} src={user.avatar ? user.avatar_url : avatar} alt="avatar" />
                         </div>
                     </div>
                 </Tippy>

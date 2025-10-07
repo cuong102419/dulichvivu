@@ -1,0 +1,32 @@
+.destination-item {
+    margin: 0;
+}
+
+.badge {
+    background-color: #f7921e;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: #fff;
+    padding: 0 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.image {
+    position: relative;
+}
+
+.image img {
+    border-radius: 10px;
+}
+
+.destination-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 12px;
+}

@@ -8,10 +8,11 @@ import { TourList } from '~/pages/Tour/List';
 import { TourDetail } from '~/pages/Tour/Detail';
 import Contact from '~/pages/Contact';
 import Help from '~/pages/Help';
-import Destination from '~/pages/Destination';
 import Booking from '~/pages/Booking';
 import BookingHistory from '~/pages/BookingHistory';
 import Rating from '~/pages/Rating';
+import Profile from '~/pages/Profile';
+import Favorite from '~/pages/Favorite';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -23,7 +24,8 @@ const publicRoutes = [
     { path: config.routes.about, component: About },
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },
-    { path: config.routes.destination, component: Destination },
+    { path: config.routes.profile, component: Profile },
+    { path: config.routes.favorite, component: Favorite },
     { path: config.routes.contact, component: Contact },
     { path: config.routes.help, component: Help },
     { path: config.routes.error, component: Error },

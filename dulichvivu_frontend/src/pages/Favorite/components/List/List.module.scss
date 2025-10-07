@@ -1,0 +1,30 @@
+.destination-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    color: var(--base-color);
+    background: var(--lighter-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    .image img {
+        max-width: 250px;
+    }
+}
+
+
+.content {
+    padding: 20px 5px;
+    padding-left: 30px;
+}
+
+.price span {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1c231f;
+}
+
+.destination-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

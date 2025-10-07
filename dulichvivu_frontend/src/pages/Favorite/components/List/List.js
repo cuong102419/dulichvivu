@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './List.module.scss';
 import { useEffect, useState } from 'react';
 import useAuth from '~/hooks/useAuth';
-import { getTourHistory } from '~/services/getTourService';
+import { getFavoriteTours } from '~/services/favoriteTourService';
 
 const cx = classNames.bind(styles);
 
@@ -32,42 +32,45 @@ function getPageNumbers(current, last) {
 }
 
 function List() {
-    const { user, isLoading, isLog } = useAuth();
     const [tours, setTours] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(5);
+    const { user, isLoading, isLog } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!isLoading && !isLog) {
+        if (isLoading || !user?.id) return;
+
+        if (!isLog) {
             navigate('/login');
+            return;
         }
-    }, [isLoading, isLog, navigate]);
 
-    useEffect(() => {
-        if (isLoading || !user) return;
-
-        const fetchTour = async () => {
+        const fetchTours = async () => {
             try {
-                const res = await getTourHistory(user.id, currentPage);
+                const res = await getFavoriteTours(user.id, currentPage);
+                console.log('API Response:', res);
 
-                setTours(res.data.data);
-                setLastPage(res.data.last_page);
+                const favoriteData = res?.data || res?.data || {};
+                const toursData = favoriteData?.data || [];
+
+                setTours(toursData);
+                setLastPage(favoriteData?.last_page || 1);
             } catch (error) {
                 console.error(error);
-                navigate('/error');
+                setTours([]);
             }
         };
 
-        fetchTour();
-    }, [user, isLoading, navigate, currentPage]);
+        fetchTours();
+    }, [isLoading, isLog, navigate, user?.id, currentPage]);
 
     return (
         <div className="col-lg-9">
             {tours.map((tour) => (
                 <div key={tour.id} className={cx('destination-item', 'style-three', 'bgc-lighter', 'mb-30')}>
                     <div className={cx('image')}>
-                        <Link to={`/tour/${tour.slug}`}>
+                        <Link to={`/tour/${tour.id}`}>
                             <img src={tour.image_url} alt="Tour List" />
                         </Link>
                     </div>
@@ -80,27 +83,6 @@ function List() {
                         <h5>
                             <Link to={`/tour/${tour.slug}`}>{tour.title}</Link>
                         </h5>
-                        <ul className="blog-meta">
-                            <li>
-                                <i className="far fa-clock"></i> {new Date(tour.start_date).toLocaleDateString('vi-VN')}
-                            </li>
-                        </ul>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className={cx('destination-footer')}>
-                                <span className={cx('price')}>
-                                    <span className="text-danger">{tour.price_adult.toLocaleString('vi-VN')}đ</span>
-                                </span>
-                            </div>
-                            <div>
-                                {tour.reviewed === 0 ? (
-                                    <Link className="theme-btn" to={`/rating/${tour.code}`}>
-                                        Đánh giá
-                                    </Link>
-                                ) : (
-                                    null
-                                )}
-                            </div>
-                        </div>
                     </div>
                 </div>
             ))}

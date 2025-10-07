@@ -58,10 +58,10 @@ function MainMenu() {
                                 render={(attrs) => (
                                     <div className={cx('menu-dropdown')} tabIndex="-1" {...attrs}>
                                         <ul>
-                                            <Link className={cx('user')}>
+                                            <Link   className={cx('user')}>
                                                 <div className={cx('avatar-tippy')}>
                                                     <div className={cx('avatar-box')}>
-                                                        <img src={avatar} alt="avatar" />
+                                                        <img src={user.avatar ? user.avatar_url : avatar} alt="avatar" />
                                                     </div>
                                                     <div className={cx('info')}>
                                                         <span className={cx('name')}>{user.name}</span>
@@ -71,7 +71,7 @@ function MainMenu() {
                                             </Link>
                                             <br />
                                             <li>
-                                                <Link className={cx('link-item')}>
+                                                <Link to="/profile" className={cx('link-item')}>
                                                     <span>
                                                         <FontAwesomeIcon className={cx('icon')} icon={faUser} /> Trang
                                                         cá nhân
@@ -79,7 +79,7 @@ function MainMenu() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link className={cx('link-item')}>
+                                                <Link to='/tours-history' className={cx('link-item')}>
                                                     <span>
                                                         <FontAwesomeIcon className={cx('icon')} icon={faMap} /> Tour đã
                                                         đặt
@@ -87,7 +87,7 @@ function MainMenu() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link className={cx('link-item')}>
+                                                <Link to='/tour-favorite' className={cx('link-item')}>
                                                     <span>
                                                         <FontAwesomeIcon className={cx('icon')} icon={faHeart} /> Tour
                                                         yêu thích
@@ -111,9 +111,9 @@ function MainMenu() {
                             >
                                 <div>
                                     <li className="d-lg-none">
-                                        <Link to="">
+                                        <Link to="/profile">
                                             Xin chào <strong>{user.name}</strong>
-                                            <img className={cx('avatar')} src={avatar} alt="avatar" />
+                                            <img className={cx('avatar')} src={user.avatar ? user.avatar_url : avatar} alt="avatar" />
                                         </Link>
                                     </li>
                                 </div>

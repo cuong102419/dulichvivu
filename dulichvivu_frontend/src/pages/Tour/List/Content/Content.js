@@ -5,15 +5,21 @@ import SelectFilter from '../components/SelectFilter';
 import { useEffect, useState } from 'react';
 import { getListTour } from '~/services/getListTourService';
 import styles from './Content.module.scss';
+import FavoriteTour from '~/components/FavoriteTour';
+import useAuth from '~/hooks/useAuth';
+import { getFavoriteTours } from '~/services/favoriteTourService';
+import dayjs from 'dayjs';
 
 const cx = classNames.bind(styles);
 
-function Content() {
+function Content({ filters }) {
     const [shortValue, setShortValue] = useState(null);
     const [tours, setTours] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
     const [selectArea, setSelectedArea] = useState('');
+    const { user } = useAuth();
+    const userId = user ? user.id : null;
     const departureLocation = {
         ha_noi: 'Hà Nội',
         da_nang: 'Đà Nẵng',
@@ -34,18 +40,36 @@ function Content() {
         },
     };
 
+    const [favorites, setFavorites] = useState([]);
+    const start = filters.startDate ? dayjs(filters.startDate).format('YYYY-MM-DD') : '';
+    const end = filters.endDate ? dayjs(filters.endDate).format('YYYY-MM-DD') : '';
+
+    useEffect(() => {
+        const fetchFavorites = async () => {
+            if (!userId) return;
+            const data = await getFavoriteTours(userId);
+            const list = data?.data?.data || data?.data || [];
+            setFavorites(list);
+        };
+        fetchFavorites();
+    }, [userId]);
+
     useEffect(() => {
         const fetchTours = async () => {
-            const data = await getListTour(currentPage, 9, selectArea);
+            const res = await getListTour(currentPage, 9, selectArea, start, end);
+            console.log(res);
+            
+            let allTours = res?.data?.data || [];
+             let filteredTours = allTours;
 
-            if (data) {
-                setTours(data.data.data);
-                setLastPage(data.data.last_page);
+            if (res) {
+                setTours(filteredTours);
+                setLastPage(res.data.last_page);
             }
         };
 
         fetchTours();
-    }, [currentPage, selectArea]);
+    }, [currentPage, selectArea, start, end]);
 
     return (
         <section className="tour-grid-page py-100 rel z-1">
@@ -73,11 +97,18 @@ function Content() {
                                                 <span className={`badge ${type[tour.type].className} shadow`}>
                                                     {type[tour.type].value}
                                                 </span>
-                                                <Link to="#" className="heart">
-                                                    <i className="fas fa-heart"></i>
-                                                </Link>
+                                                <FavoriteTour
+                                                    key={tour.id}
+                                                    tourId={tour.id}
+                                                    userId={userId}
+                                                    favorites={favorites}
+                                                />
                                                 <Link to={`/tour/${tour.slug}`}>
-                                                    <img className={cx('thumbnail')} src={tour.image_url} alt="Tour List" />
+                                                    <img
+                                                        className={cx('thumbnail')}
+                                                        src={tour.image_url}
+                                                        alt="Tour List"
+                                                    />
                                                 </Link>
                                             </div>
                                             <div className="content">
@@ -86,14 +117,16 @@ function Content() {
                                                 </h6>
                                                 <div className="destination-header">
                                                     <span>
-                                                        <i className="fal fa-ticket me-2"></i>Mã tour: <strong>{tour.code}</strong>
+                                                        <i className="fal fa-ticket me-2"></i>Mã tour:{' '}
+                                                        <strong>{tour.code}</strong>
                                                     </span>
                                                     <span>
                                                         <i className="fal fa-map-marker-alt me-2"></i>Nơi khởi hành:{' '}
                                                         <strong>{departureLocation[tour.departure_location]}</strong>
                                                     </span>
                                                     <span>
-                                                        <i className="fal fa-calendar me-2"></i>Ngày khởi hành: <strong>{tour.start_date}</strong>
+                                                        <i className="fal fa-calendar me-2"></i>Ngày khởi hành:{' '}
+                                                        <strong>{tour.start_date}</strong>
                                                     </span>
                                                 </div>
                                                 <div className="destination-footer">

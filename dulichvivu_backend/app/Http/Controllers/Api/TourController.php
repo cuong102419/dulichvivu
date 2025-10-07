@@ -15,6 +15,8 @@ class TourController extends Controller
     {
         $perPage = $request->input('per_page', 9);
         $area = $request->input('area');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
 
         $toursQuery = Tour::select('id', 'code', 'slug', 'title', 'type', 'duration', 'area', 'departure_location')
             ->where('status', 'active')
@@ -37,6 +39,17 @@ class TourController extends Controller
         } elseif ($area == 'nuoc-ngoai') {
             $toursQuery->where('area', '=', 'international');
         }
+
+        if ($startDate && $endDate) {
+            $toursQuery->whereExists(function ($query) use ($startDate, $endDate) {
+                $query->select(DB::raw(1))
+                    ->from('departures')
+                    ->whereColumn('departures.tour_id', 'tours.id')
+                    ->whereBetween('departures.start_date', [$startDate, $endDate])
+                    ->where('status', 'open');
+            });
+        }
+
 
         $tours = $toursQuery->paginate($perPage);
 

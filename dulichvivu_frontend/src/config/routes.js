@@ -2,15 +2,16 @@ const routes = {
     home: '/',
     tourList: '/tour',
     tourDetail: '/tour/:slug',
-    tourHistory: '/my-tours',
+    tourHistory: '/tours-history',
     about: '/about',
     login: '/login',
     register: '/signin',
     contact: '/contact',
     help: '/help',
-    destination: '/destination',
     booking: '/booking',
     rating: '/rating/:code',
+    profile: '/profile',
+    favorite: '/tour-favorite',
     error: '/*',
 }
 

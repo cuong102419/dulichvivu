@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function About() {
     return (
         <section class="faq-page-about pt-100 rel z-1">
@@ -8,22 +10,22 @@ function About() {
                             class="faq-page-about-content mb-30 rmb-55"
                         >
                             <div class="section-title mb-30">
-                                <h2>Destination Dreams The Insider’s Guide to Exceptional Travel Experiences</h2>
+                                <h2>Hướng dẫn của người trong cuộc về trải nghiệm du lịch đặc biệt</h2>
                             </div>
                             <p>
-                                Tours and travels play a crucial role in enriching lives by offering unique experiences,
-                                cultural exchanges, and the joy of exploration.
+                                Du lịch đóng vai trò quan trọng trong việc làm phong phú cuộc sống bằng cách cung cấp những trải nghiệm độc đáo,
+                                trao đổi văn hóa và niềm vui khám phá.
                             </p>
                             <ul class="list-style-two mt-35 mb-20">
-                                <li>Experience Agency</li>
-                                <li>Professional Team</li>
-                                <li>Low Cost Travel</li>
-                                <li>Online Support 24/7</li>
+                                <li>Kinh nghiệm nhiều năm</li>
+                                <li>Đội ngũ chuyên nghiệp</li>
+                                <li>TIết kiệm chi phí</li>
+                                <li>Hỗ trợ 24/7</li>
                             </ul>
-                            <a href="contact.html" class="theme-btn style-two">
-                                <span data-hover="Book Now">Book Now</span>
+                            <Link to="/tour" class="theme-btn style-two">
+                                <span data-hover="Đặt ngay">Đặt ngay</span>
                                 <i class="fal fa-arrow-right"></i>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div class="col-lg-6">

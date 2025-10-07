@@ -37,20 +37,20 @@ function Footer() {
                         <div className="col col-small">
                             <div className="footer-widget footer-links ms-sm-5">
                                 <div className="footer-title">
-                                    <h5>Services</h5>
+                                    <h5>Dịch vụ</h5>
                                 </div>
                                 <ul className="list-style-three">
                                     <li>
-                                        <a href="destination-details.html">Best Tour Guide</a>
+                                        <Link to="#">Tour Guide tốt nhất</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">Tour Booking</a>
+                                        <Link to="#">Đặt tour</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">Hotel Booking</a>
+                                        <Link to="#">Đặt phòng khách sạn</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">Ticket Booking</a>
+                                        <Link to="#">Đặt vé</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -58,20 +58,20 @@ function Footer() {
                         <div className="col col-small">
                             <div className="footer-widget footer-links ms-md-4">
                                 <div className="footer-title">
-                                    <h5>Company</h5>
+                                    <h5>Công ty</h5>
                                 </div>
                                 <ul className="list-style-three">
                                     <li>
-                                        <a href="about.html">About Company</a>
+                                        <Link to="/about">Giới thiệu công ty</Link>
                                     </li>
                                     <li>
-                                        <a href="blog.html">Community Blog</a>
+                                        <Link to="#">Blog</Link>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Jobs and Careers</a>
+                                        <Link to="#">Việc làm</Link>
                                     </li>
                                     <li>
-                                        <a href="blog.html">latest News Blog</a>
+                                        <Link to="#">Blog mới nhất</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -79,20 +79,20 @@ function Footer() {
                         <div className="col col-small">
                             <div className="footer-widget footer-links ms-lg-4">
                                 <div className="footer-title">
-                                    <h5>Destinations</h5>
+                                    <h5>Địa điểm</h5>
                                 </div>
                                 <ul className="list-style-three">
                                     <li>
-                                        <a href="destination-details.html">African Safaris</a>
+                                        <Link to="#">Châu Âu</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">Alaska & Canada</a>
+                                        <Link to="#">Châu Á</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">South America</a>
+                                        <Link to="#">Châu Mỹ</Link>
                                     </li>
                                     <li>
-                                        <a href="destination-details.html">Middle East</a>
+                                        <Link to="#">Châu Phi</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -100,20 +100,19 @@ function Footer() {
                         <div className="col col-md-6 col-10 col-small">
                             <div className="footer-widget footer-contact">
                                 <div className="footer-title">
-                                    <h5>Get In Touch</h5>
+                                    <h5>Liên hệ với chúng tôi</h5>
                                 </div>
                                 <ul className="list-style-one">
                                     <li>
-                                        <i className="fal fa-map-marked-alt"></i> 578 Level, D-block 45 Street
-                                        Melbourne, Australia
+                                        <i className="fal fa-map-marked-alt"></i> 470 Trần Đại Nghĩa, Ngũ Hành Sơn, Đà Nẵng
                                     </li>
                                     <li>
                                         <i className="fal fa-envelope"></i>{' '}
-                                        <a href="mailto:supportrevelo@gmail.com">supportrevelo @gmail.com</a>
+                                        <Link to="mailto:supportdulichvivu@gmail.com">supportdulichvivu@gmail.com</Link>
                                     </li>
                                     <li>
                                         <i className="fal fa-phone-volume"></i>{' '}
-                                        <a href="callto:+88012334588">+880 (123) 345 88</a>
+                                        <Link to="callto:+88012334588">+880 (123) 345 88</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -127,23 +126,20 @@ function Footer() {
                         <div className="col-lg-5">
                             <div className="copyright-text text-center text-lg-start">
                                 <p>
-                                    @Copy 2024 <a href="index.html">Ravelo</a>, All rights reserved
+                                    @Copy 2024 <Link to="/">Dulichvivu</Link>, All rights reserved
                                 </p>
                             </div>
                         </div>
                         <div className="col-lg-7 text-center text-lg-end">
                             <ul className="footer-bottom-nav">
                                 <li>
-                                    <a href="about.html">Terms</a>
+                                    <Link to="#">Điều khoản</Link>
                                 </li>
                                 <li>
-                                    <a href="about.html">Privacy Policy</a>
+                                    <Link to="#">Chính sách bảo mật</Link>
                                 </li>
                                 <li>
-                                    <a href="about.html">Legal notice</a>
-                                </li>
-                                <li>
-                                    <a href="about.html">Accessibility</a>
+                                    <Link to="#">Thông báo pháp lý</Link>
                                 </li>
                             </ul>
                         </div>

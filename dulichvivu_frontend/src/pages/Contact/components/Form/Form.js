@@ -7,13 +7,13 @@ function Form() {
                         <div className="comment-form bgc-lighter z-1 rel mb-30 rmb-55">
                             <form id="contactForm" className="contactForm" name="contactForm" action="" method="post">
                                 <div className="section-title">
-                                    <h2>Get In Touch</h2>
+                                    <h2>Liên hệ ngay</h2>
                                 </div>
-                                <p>Your email address will not be published. Required fields are marked *</p>
+                                <p>Địa chỉ email của bạn sẽ không được công bố. Các trường bắt buộc được đánh dấu *</p>
                                 <div className="row mt-35">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="name">Full Name</label>
+                                            <label htmlFor="name">Họ và tên</label>
                                             <input
                                                 type="text"
                                                 id="name"
@@ -27,7 +27,7 @@ function Form() {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="phone_number">Phone Number</label>
+                                            <label htmlFor="phone_number">Số điện thoại</label>
                                             <input
                                                 type="text"
                                                 id="phone_number"
@@ -41,7 +41,7 @@ function Form() {
                                     </div>
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <label htmlFor="email">Email Address</label>
+                                            <label htmlFor="email">Địa chỉ Email</label>
                                             <input
                                                 type="email"
                                                 id="email"
@@ -55,7 +55,7 @@ function Form() {
                                     </div>
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <label htmlFor="message">Your Message</label>
+                                            <label htmlFor="message">Nội dung</label>
                                             <textarea
                                                 name="message"
                                                 id="message"
@@ -77,13 +77,13 @@ function Form() {
                                                         id="terms-condition"
                                                     />
                                                     <label htmlFor="terms-condition">
-                                                        Save my name, email, and website in this browser for the next
-                                                        time I comment.
+                                                        Lưu tên, email và trang web của tôi trong trình duyệt này cho lần
+                                                        tiếp theo.
                                                     </label>
                                                 </li>
                                             </ul>
                                             <button type="submit" className="theme-btn style-two">
-                                                <span data-hover="Send Comments">Send Comments</span>
+                                                <span data-hover="Send Comments">Gửi liên hệ</span>
                                                 <i className="fal fa-arrow-right"></i>
                                             </button>
                                             <div id="msgSubmit" className="hidden"></div>

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\Api\FavoriteTourController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\TourController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +33,13 @@ Route::middleware('auth:sanctum')->group(function()  {
     Route::prefix('/rating')->group(function () {
         Route::get('/{code}', [ReviewController::class, 'index']);
         Route::post('/store', [ReviewController::class, 'store']);
+    });
+
+    Route::post('/profile/{id}/update', [ProfileController::class, 'update']);
+
+    Route::prefix('/favorite-tours')->group(function () {
+        Route::get('/{userId}', [FavoriteTourController::class, 'index']);
+        Route::post('/create', [FavoriteTourController::class, 'create']);
     });
 }); 
 

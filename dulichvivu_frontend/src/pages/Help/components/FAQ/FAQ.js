@@ -5,13 +5,9 @@ function FAQ() {
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <div class="section-title text-center counter-text-wrap mb-50">
-                            <h2>Frequently Asked Questions</h2>
+                            <h2>Câu hỏi thường gặp</h2>
                             <p>
-                                One site{' '}
-                                <span class="count-text plus" data-speed="3000" data-stop="34500">
-                                    0
-                                </span>{' '}
-                                most popular experience you’ll remember
+                                Dưới đây là một số câu hỏi phổ biến mà khách hàng thường hỏi về dịch vụ của chúng tôi.
                             </p>
                         </div>
                         <div class="accordion-one" id="faq-accordion">
@@ -22,7 +18,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne"
                                     >
-                                        1. What services does your tour and travel agency offer?
+                                        1. Công ty du lịch của bạn cung cấp những dịch vụ gì?
                                     </button>
                                 </h5>
                                 <div
@@ -32,8 +28,10 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Chúng tôi cung cấp đa dạng dịch vụ du lịch trọn gói như: tour trong và ngoài
+                                            nước, đặt vé máy bay, đặt phòng khách sạn, thuê xe du lịch, và hỗ trợ làm
+                                            visa. Mục tiêu của chúng tôi là mang đến trải nghiệm du lịch an toàn, tiện
+                                            lợi và đáng nhớ nhất cho khách hàng.
                                         </p>
                                     </div>
                                 </div>
@@ -41,11 +39,11 @@ function FAQ() {
                             <div class="accordion-item">
                                 <h5 class="accordion-header">
                                     <button
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo"
                                     >
-                                        2. How do I book a tour or travel package?
+                                        2. Làm thế nào để đặt tour hoặc gói du lịch?
                                     </button>
                                 </h5>
                                 <div
@@ -55,15 +53,16 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            You can book a tour or travel package through our website, by calling our
-                                            customer service, or by visiting our office. Our representatives will assist
-                                            you in selecting the best options based on your preferences.
+                                            Bạn có thể đặt tour du lịch hoặc gói du lịch thông qua trang web của chúng
+                                            tôi, bằng cách gọi cho dịch vụ khách hàng của chúng tôi hoặc đến văn phòng
+                                            của chúng tôi. Đại diện của chúng tôi sẽ hỗ trợ bạn lựa chọn các tùy chọn
+                                            tốt nhất dựa trên sở thích của bạn.
                                         </p>
                                         <ul class="list-style-two pt-10">
-                                            <li>Experience Agency</li>
-                                            <li>Professional Team</li>
-                                            <li>Low Cost Travel</li>
-                                            <li>Online Support 24/7</li>
+                                            <li>Nhiều năm kinh nghiệm</li>
+                                            <li>Đội ngũ chuyên nghiệp</li>
+                                            <li>Tiết kiệm chi phí</li>
+                                            <li>Hỗ trợ trực tuyến 24/7</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,7 +74,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree"
                                     >
-                                        3. What types of tours do you offer?
+                                        3. Bạn cung cấp những loại tour du lịch nào?
                                     </button>
                                 </h5>
                                 <div
@@ -85,8 +84,10 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Chúng tôi cung cấp nhiều loại tour đa dạng như: tour trong nước, tour quốc
+                                            tế, tour nghỉ dưỡng, tour khám phá, tour teambuilding và tour theo yêu cầu
+                                            riêng. Mỗi hành trình đều được thiết kế để mang lại trải nghiệm độc đáo và
+                                            đáng nhớ nhất cho khách hàng.
                                         </p>
                                     </div>
                                 </div>
@@ -98,7 +99,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour"
                                     >
-                                        4. Can I customize my travel package?
+                                        4. Tôi có thể tùy chỉnh gói du lịch của mình không?
                                     </button>
                                 </h5>
                                 <div
@@ -108,8 +109,9 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Hoàn toàn có thể! Chúng tôi hỗ trợ khách hàng tùy chỉnh hành trình, điểm
+                                            đến, thời gian và dịch vụ theo nhu cầu riêng. Đội ngũ tư vấn sẽ giúp bạn
+                                            thiết kế chuyến đi hoàn hảo và phù hợp nhất.
                                         </p>
                                     </div>
                                 </div>
@@ -121,7 +123,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive"
                                     >
-                                        5. Are your tours suitable for families with children?
+                                        5. Tour của bạn có phù hợp với gia đình có trẻ em không?
                                     </button>
                                 </h5>
                                 <div
@@ -131,8 +133,9 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Hoàn toàn phù hợp! Chúng tôi có nhiều tour được thiết kế riêng cho gia đình,
+                                            bao gồm lịch trình nhẹ nhàng, điểm đến an toàn và nhiều hoạt động vui chơi
+                                            phù hợp với trẻ em.
                                         </p>
                                     </div>
                                 </div>
@@ -144,7 +147,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseSix"
                                     >
-                                        6. What payment methods do you accept?
+                                        6. Bạn chấp nhận những phương thức thanh toán nào?
                                     </button>
                                 </h5>
                                 <div
@@ -154,8 +157,9 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Chúng tôi chấp nhận nhiều hình thức thanh toán linh hoạt, bao gồm thanh toán
+                                            trực tiếp tại văn phòng, ví điện tử MoMo và thanh toán quốc tế qua PayPal.
+                                            Bạn có thể lựa chọn phương thức phù hợp nhất với mình.
                                         </p>
                                     </div>
                                 </div>
@@ -167,7 +171,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseSeven"
                                     >
-                                        7. Is a deposit required when booking a tour?
+                                        7. Khi đặt tour, có cần đặt cọc trước không??
                                     </button>
                                 </h5>
                                 <div
@@ -177,8 +181,9 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Khi đặt tour, quý khách cần thanh toán một khoản đặt cọc để giữ chỗ. Số tiền
+                                            còn lại sẽ được thanh toán trước ngày khởi hành theo hướng dẫn của chúng
+                                            tôi.
                                         </p>
                                     </div>
                                 </div>
@@ -190,7 +195,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseEight"
                                     >
-                                        8. Can I make changes to my booking after it has been confirmed?
+                                        8. Tôi có thể thay đổi đặt chỗ của mình sau khi đã được xác nhận không?
                                     </button>
                                 </h5>
                                 <div
@@ -200,8 +205,10 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Bạn hoàn toàn có thể thay đổi thông tin đặt tour sau khi đã được xác nhận,
+                                            tuy nhiên việc thay đổi cần được thông báo trước ngày khởi hành và có thể
+                                            phát sinh chi phí tùy theo chính sách của tour. Vui lòng liên hệ với chúng
+                                            tôi để được hỗ trợ chi tiết.
                                         </p>
                                     </div>
                                 </div>
@@ -213,7 +220,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseNine"
                                     >
-                                        9. What is your cancellation policy?
+                                        9. Chính sách hủy của bạn là gì?
                                     </button>
                                 </h5>
                                 <div
@@ -223,8 +230,26 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Phí hủy tour được tính dựa trên thời gian khách thông báo hủy so với ngày
+                                            khởi hành dự kiến. Cụ thể:
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Ngay sau khi ký hợp đồng: <strong>50% giá tour</strong>.
+                                            </li>
+                                            <li>
+                                                Từ 45 đến 30 ngày trước ngày khởi hành: <strong>70% giá tour</strong>.
+                                            </li>
+                                            <li>
+                                                Từ 29 đến 15 ngày trước ngày khởi hành: <strong>90% giá tour</strong>.
+                                            </li>
+                                            <li>
+                                                Trong vòng 14 ngày trước ngày khởi hành: <strong>100% giá tour</strong>.
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            Lưu ý: Chính sách có thể thay đổi tùy theo loại tour hoặc chương trình
+                                            khuyến mãi. Vui lòng kiểm tra chi tiết trước khi đặt tour.
                                         </p>
                                     </div>
                                 </div>
@@ -236,7 +261,7 @@ function FAQ() {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapseTen"
                                     >
-                                        10. How do I know if my booking is confirmed?
+                                        10. Làm cách nào để biết đặt chỗ của tôi đã được xác nhận hay chưa?
                                     </button>
                                 </h5>
                                 <div
@@ -246,8 +271,14 @@ function FAQ() {
                                 >
                                     <div class="accordion-body">
                                         <p>
-                                            To take a trivial example which undertakes laborious physical exercise
-                                            except to obtain some advantage pleasure annoying consequences
+                                            Sau khi bạn hoàn tất việc đặt tour, hệ thống của chúng tôi sẽ gửi một email
+                                            xác nhận đến địa chỉ email bạn đã đăng ký. Email này sẽ bao gồm thông tin
+                                            chi tiết về tour, thời gian khởi hành và mã đặt chỗ.
+                                        </p>
+                                        <p>
+                                            Nếu bạn không nhận được email trong vòng vài phút sau khi thanh toán hoặc
+                                            đăng ký, vui lòng kiểm tra hộp thư rác (spam/junk) hoặc liên hệ trực tiếp
+                                            với chúng tôi để được hỗ trợ xác nhận đặt chỗ.
                                         </p>
                                     </div>
                                 </div>

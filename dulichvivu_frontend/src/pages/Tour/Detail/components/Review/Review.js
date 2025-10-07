@@ -1,4 +1,3 @@
-import { set } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { getListReview } from '~/services/ratingService';
 
@@ -21,6 +20,9 @@ function Review({ tourId }) {
         fetchReviews();
     }, [tourId]);
 
+    console.log(reviews);
+    
+
     return (
         <>
             <h3>Đánh giá của khách hàng</h3>
@@ -29,7 +31,7 @@ function Review({ tourId }) {
                     reviews.map((review) => (
                         <div key={review.id} className="comment-body">
                             <div className="author-thumb">
-                                {/* <img src="/assets/images/blog/comment-author1.jpg" alt="Author" /> */}
+                                <img src={review.user.avatar ? review.user.avatar_url : '/assets/images/features/user-rate.png'} alt="Author" />
                             </div>
                             <div className="content">
                                 <h6>{review.user.name}</h6>
@@ -43,7 +45,9 @@ function Review({ tourId }) {
                         </div>
                     ))
                 ) : (
-                    <p>Chưa có đánh giá nào</p>
+                    <div className="comment-body">
+                        <p>Chưa có đánh giá nào</p>
+                    </div>
                 )}
             </div>
         </>
