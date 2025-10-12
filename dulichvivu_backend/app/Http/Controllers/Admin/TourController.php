@@ -175,7 +175,7 @@ class TourController extends Controller
     }
 
     public function close(Tour $tour) {
-        if ($tour->departures()->sum('booked') <= 0) {
+        if ($tour->departures()->sum('booked') > 0) {
             alert('Thất bại!', 'Tour đã có người đặt, không thể đóng tour.', 'error');
             return redirect()->back();
         }
