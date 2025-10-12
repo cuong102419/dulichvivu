@@ -89,6 +89,16 @@
                                                                                 class="fa fa-unlock-alt"></i></button>
                                                                     </form>
                                                                 @elseif ($tour->status == 'active' && $tour->departures()->sum('booked') == 0)
+                                                                    <form action="{{ route('tour.pending', $tour->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <button
+                                                                            onclick="return confirm('Bạn có chắc muốn khóa tour này!')"
+                                                                            type="submit" class="btn text-warning"><i
+                                                                                class="fa fa-lock"></i></button>
+                                                                    </form>
+
                                                                     <form action="{{ route('tour.close', $tour->id) }}"
                                                                         method="post">
                                                                         @csrf
@@ -96,7 +106,8 @@
                                                                         <button
                                                                             onclick="return confirm('Bạn có chắc muốn đóng tour này, nếu đóng bạn sẽ không thể chỉnh sửa tour này!')"
                                                                             type="submit" class="btn text-danger"><i
-                                                                                class="fa fa-lock"></i></button>
+                                                                                class="fa fa-times"
+                                                                                aria-hidden="true"></i></button>
                                                                     </form>
                                                                 @endif
                                                                 <a href="{{ route('tour.edit', $tour->slug) }}"

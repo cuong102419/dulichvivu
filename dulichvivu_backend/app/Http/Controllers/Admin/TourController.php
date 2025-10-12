@@ -74,10 +74,10 @@ class TourController extends Controller
 
     public function edit($slug)
     {
-        $tour = Tour::where('slug',  operator: $slug)->firstOrFail();
+        $tour = Tour::where('slug', operator: $slug)->firstOrFail();
 
         if ($tour->status == 'active') {
-            alert('Lưu ý!', 'Vì tour đã được mở, bạn chỉ có thể cập nhật lịch khởi hành.', 'warning');
+            alert('Lưu ý!', 'Vì tour đã được mở, bạn chỉ có thể cập nhật lịch khởi hành. Bạn có thể chỉnh sửa nếu khóa tour.', 'warning');
             return redirect()->route('departure.list', $tour->slug);
         }
 
@@ -131,7 +131,7 @@ class TourController extends Controller
                 $image->delete();
             }
 
-            foreach ($timelines as  $timeline) {
+            foreach ($timelines as $timeline) {
                 $timeline->delete();
             }
 
@@ -174,7 +174,8 @@ class TourController extends Controller
         return redirect()->back();
     }
 
-    public function close(Tour $tour) {
+    public function close(Tour $tour)
+    {
         if ($tour->departures()->sum('booked') > 0) {
             alert('Thất bại!', 'Tour đã có người đặt, không thể đóng tour.', 'error');
             return redirect()->back();
@@ -186,6 +187,22 @@ class TourController extends Controller
         }
 
         alert('Thành công!', 'Đóng tour thành công.', 'success');
+        return redirect()->back();
+    }
+
+    public function pending(Tour $tour)
+    {
+        if ($tour->departures()->sum('booked') > 0) {
+            alert('Thất bại!', 'Tour đã có người đặt, không thể đóng tour.', 'error');
+            return redirect()->back();
+        }
+
+        if ($tour->status != 'inactive') {
+            $tour->status = 'pending';
+            $tour->save();
+        }
+
+        alert('Thành công!', 'Khóa tour thành công.', 'success');
         return redirect()->back();
     }
 }
