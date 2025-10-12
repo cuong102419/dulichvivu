@@ -55,6 +55,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::put('/update/{tour}', [TourController::class, 'update'])->name('tour.update');
         Route::delete('/delete/{tour}', [TourController::class,  'destroy'])->name('tour.delete');
         Route::put('/open/{tour}', [TourController::class, 'open'])->name('tour.open');
+        Route::put('/close/{tour}', [TourController::class, 'close'])->name('tour.close');
 
         Route::prefix('/{tour}/departure')->group(function() {
             Route::get('/', [DepartureController::class, 'index'])->name('departure.list');

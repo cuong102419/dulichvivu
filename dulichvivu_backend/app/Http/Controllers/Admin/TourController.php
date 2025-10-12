@@ -173,4 +173,19 @@ class TourController extends Controller
 
         return redirect()->back();
     }
+
+    public function close(Tour $tour) {
+        if ($tour->departures()->sum('booked') <= 0) {
+            alert('Thất bại!', 'Tour đã có người đặt, không thể đóng tour.', 'error');
+            return redirect()->back();
+        }
+
+        if ($tour->status != 'inactive') {
+            $tour->status = 'inactive';
+            $tour->save();
+        }
+
+        alert('Thành công!', 'Đóng tour thành công.', 'success');
+        return redirect()->back();
+    }
 }

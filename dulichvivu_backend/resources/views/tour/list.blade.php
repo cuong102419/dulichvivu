@@ -89,7 +89,7 @@
                                                                                 class="fa fa-unlock-alt"></i></button>
                                                                     </form>
                                                                 @elseif ($tour->status == 'active' && $tour->departures()->sum('booked') == 0)
-                                                                    <form action=""
+                                                                    <form action="{{ route('tour.close', $tour->id) }}"
                                                                         method="post">
                                                                         @csrf
                                                                         @method('PUT')
