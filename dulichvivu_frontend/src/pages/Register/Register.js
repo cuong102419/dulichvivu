@@ -10,7 +10,6 @@ import styles from './Register.module.scss';
 import InputGroup from '~/components/InputGroup';
 import Title from '~/components/Title';
 import { register } from '~/services/registerService';
-import usePublicIP from '~/hooks/usePublicIP';
 import image_signup from '~/assets/login/signup-image.jpg';
 import checkEmail from '~/services/checkEmailService';
 
@@ -23,7 +22,6 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
-    const ip = usePublicIP();
 
     const validate = async () => {
         const newErrors = {};
@@ -102,8 +100,7 @@ function Register() {
             const res = await register({
                 name: fullname,
                 email: email.trim(),
-                password: password.trim(),
-                ip_address: ip,
+                password: password.trim()
             });
 
             if (res?.status) {

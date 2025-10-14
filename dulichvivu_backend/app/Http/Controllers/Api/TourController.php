@@ -18,6 +18,8 @@ class TourController extends Controller
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
         $rating = $request->input('rating');
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
 
         $toursQuery = Tour::select('id', 'code', 'slug', 'title', 'type', 'duration', 'area', 'departure_location')
             ->where('status', 'active')
@@ -53,6 +55,19 @@ class TourController extends Controller
 
         if ($rating) {
             $toursQuery->where('reviews', '>=', $rating);
+        }
+
+        if ($minPrice !== null && $maxPrice !== null) {
+            $toursQuery->whereExists(function ($query) use ($minPrice, $maxPrice) {
+                $query->select(DB::raw(1))
+                    ->from('departures')
+                    ->whereColumn('departures.tour_id', 'tours.id')
+                    ->where('status', 'open')
+                    ->whereBetween('departures.price_adult', [
+                        $minPrice * 1000000,
+                        $maxPrice * 1000000
+                    ]);
+            });
         }
 
         $tours = $toursQuery->paginate($perPage);
@@ -95,7 +110,7 @@ class TourController extends Controller
 
     public function detail($slug)
     {
-        $tour = Tour::where('slug', $slug)->firstOrFail();
+        $tour = Tour::where('slug', $slug)->where('status', 'active')->firstOrFail();
 
         $images = DB::table('images')
             ->where('tour_id', $tour->id)

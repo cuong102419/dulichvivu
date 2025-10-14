@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getHomeTour } from '~/services/getHomeTourService';
 import styles from './Destination.module.scss';
+import useRealtime from '~/hooks/useRealtime';
+import { debounce } from 'lodash';
 
 const cx = classNames.bind(styles);
 
@@ -14,19 +16,21 @@ function Destination() {
         ho_chi_minh: 'TP Hồ Chí Minh',
         da_nang: 'Đà Nẵng',
     };
+    
+    const fetchTours = useCallback(async () => {
+        const data = await getHomeTour();
+
+        if (data) {
+            setToursLocal(data.data.toursLocal);
+            setToursInternational(data.data.toursInternational);
+        }
+    }, [])
 
     useEffect(() => {
-        const fetchTours = async () => {
-            const data = await getHomeTour();
-
-            if (data) {
-                setToursLocal(data.data.toursLocal);
-                setToursInternational(data.data.toursInternational);
-            }
-        };
-
         fetchTours();
-    }, []);
+    }, [fetchTours]);
+
+    useRealtime('tours', 'TourChanged', debounce(fetchTours, 1000));
 
     return (
         <section className="destinations-area bgc-white pt-100 pb-70 rel z-1">

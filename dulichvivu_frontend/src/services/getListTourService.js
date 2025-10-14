@@ -1,6 +1,6 @@
 import * as httpRequest from '~/utils/httpRequest';
 
-export const getListTour = async (page = 1, perPage, area = '', startDate = '', endDate = '', rating = '') => {
+export const getListTour = async (page = 1, perPage, area = '', startDate = '', endDate = '', rating = '', minPrice = '', maxPrice = '') => {
     try {
         let url = `/tour/list?page=${page}&per_page=${perPage}`;
 
@@ -18,6 +18,10 @@ export const getListTour = async (page = 1, perPage, area = '', startDate = '', 
 
         if (rating) {
             url += `&rating=${rating}`;
+        }
+
+        if(minPrice !== '' && maxPrice !== '') {
+            url += `&min_price=${minPrice}&max_price=${maxPrice}`
         }
         const response = await httpRequest.get(url);
 

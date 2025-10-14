@@ -19,7 +19,7 @@ function Form() {
                                                 id="name"
                                                 name="name"
                                                 className="form-control"
-                                                placeholder="Randy J. Thomas"
+                                                placeholder="Nhập họ và tên"
                                                 // value=""
                                             />
                                             <div className="help-block with-errors"></div>
@@ -33,7 +33,7 @@ function Form() {
                                                 id="phone_number"
                                                 name="phone_number"
                                                 className="form-control"
-                                                placeholder="Phone"
+                                                placeholder="Nhập số điện thoại"
                                                 // value=""
                                             />
                                             <div className="help-block with-errors"></div>
@@ -47,7 +47,7 @@ function Form() {
                                                 id="email"
                                                 name="email"
                                                 className="form-control"
-                                                placeholder="enter email"
+                                                placeholder="Nhập địa chỉ Email"
                                                 // value=""
                                             />
                                             <div className="help-block with-errors"></div>
@@ -61,7 +61,7 @@ function Form() {
                                                 id="message"
                                                 className="form-control"
                                                 rows="5"
-                                                placeholder="Message"
+                                                placeholder="Nhập nội dung"
                                             ></textarea>
                                             <div className="help-block with-errors"></div>
                                         </div>

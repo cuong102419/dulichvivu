@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\TourChanged;
 use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Timeline;
@@ -167,6 +168,7 @@ class TourController extends Controller
         if ($tour->status != 'active') {
             $tour->status = 'active';
             $tour->save();
+            event(new TourChanged($tour));
         }
 
         alert('Thành công!', 'Mở tour thành công.', 'success');
@@ -184,6 +186,7 @@ class TourController extends Controller
         if ($tour->status != 'inactive') {
             $tour->status = 'inactive';
             $tour->save();
+            event(new TourChanged($tour));
         }
 
         alert('Thành công!', 'Đóng tour thành công.', 'success');
@@ -200,6 +203,7 @@ class TourController extends Controller
         if ($tour->status != 'inactive') {
             $tour->status = 'pending';
             $tour->save();
+            event(new TourChanged($tour));
         }
 
         alert('Thành công!', 'Khóa tour thành công.', 'success');

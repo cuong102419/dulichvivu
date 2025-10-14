@@ -1,24 +1,24 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import SelectFilter from '../components/SelectFilter';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getListTour } from '~/services/getListTourService';
 import styles from './Content.module.scss';
 import FavoriteTour from '~/components/FavoriteTour';
 import useAuth from '~/hooks/useAuth';
 import { getFavoriteTours } from '~/services/favoriteTourService';
 import dayjs from 'dayjs';
+import useRealtime from '~/hooks/useRealtime';
 
 const cx = classNames.bind(styles);
 
 function Content({ filters }) {
-    const [shortValue, setShortValue] = useState(null);
     const [tours, setTours] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
     const [selectArea, setSelectedArea] = useState('');
-     const [selectedRating, setSelectedRating] = useState('');
+    const [selectedRating, setSelectedRating] = useState('');
+    const [priceChange, setPriceChange] = useState([0, 100]);
     const { user } = useAuth();
     const userId = user ? user.id : null;
     const departureLocation = {
@@ -45,6 +45,19 @@ function Content({ filters }) {
     const start = filters.startDate ? dayjs(filters.startDate).format('YYYY-MM-DD') : '';
     const end = filters.endDate ? dayjs(filters.endDate).format('YYYY-MM-DD') : '';
 
+    const fetchTours = useCallback(async () => {
+        const res = await getListTour(currentPage, 9, selectArea, start, end, selectedRating, priceChange[0], priceChange[1]);
+        console.log(res);
+
+        let allTours = res?.data?.data || [];
+        let filteredTours = allTours;
+
+        if (res) {
+            setTours(filteredTours);
+            setLastPage(res.data.last_page);
+        }
+    }, [currentPage, selectArea, start, end, selectedRating, priceChange]);
+
     useEffect(() => {
         const fetchFavorites = async () => {
             if (!userId) return;
@@ -56,31 +69,19 @@ function Content({ filters }) {
     }, [userId]);
 
     useEffect(() => {
-        const fetchTours = async () => {
-            const res = await getListTour(currentPage, 9, selectArea, start, end, selectedRating);
-            console.log(res);
-            
-            let allTours = res?.data?.data || [];
-             let filteredTours = allTours;
-
-            if (res) {
-                setTours(filteredTours);
-                setLastPage(res.data.last_page);
-            }
-        };
-
         fetchTours();
-    }, [currentPage, selectArea, start, end, selectedRating]);
+    }, [fetchTours]);
+
+    useRealtime('tours', 'TourChanged', fetchTours);
 
     return (
         <section className="tour-grid-page py-100 rel z-1">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-6 col-sm-10 rmb-75">
-                        <Sidebar oneAreaChange={setSelectedArea} onRatingChange={setSelectedRating} />
+                        <Sidebar oneAreaChange={setSelectedArea} onRatingChange={setSelectedRating} onPriceChange={setPriceChange}/>
                     </div>
                     <div className="col-lg-9">
-                        <SelectFilter value={shortValue} onChange={setShortValue} />
                         <div className="tour-grid-wrap">
                             <div className="row">
                                 {tours.map((tour) => (

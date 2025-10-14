@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\TourChanged;
 use App\Http\Controllers\Controller;
 use App\Models\Departure;
 use App\Models\Tour;
@@ -50,10 +51,15 @@ class DepartureController extends Controller
         $expectedEnd = Carbon::parse($start)->addDays($tour->total_day)->toDateString();
 
         $data = $request->validate([
-            'start_date' => ['required', 'date', 'after_or_equal:' . now()->addDays(7)->toDateString(), Rule::unique('departures')->where(function ($query) use ($tour) {
-                return $query->where('tour_id', $tour->id);
-            })],
-            'end_date'   => ['required', 'date'],
+            'start_date' => [
+                'required',
+                'date',
+                'after_or_equal:' . now()->addDays(7)->toDateString(),
+                Rule::unique('departures')->where(function ($query) use ($tour) {
+                    return $query->where('tour_id', $tour->id);
+                })
+            ],
+            'end_date' => ['required', 'date'],
             'departure_time' => ['required'],
             'price_adult' => ['required'],
             'price_child' => ['required'],
@@ -98,10 +104,15 @@ class DepartureController extends Controller
             $expectedEnd = Carbon::parse($start)->addDays($tour->total_day)->toDateString();
 
             $data = $request->validate([
-                'start_date' => ['required', 'date', 'after_or_equal:' . now()->addDays(7)->toDateString(), Rule::unique('departures')->where(function ($query) use ($tour) {
-                    return $query->where('tour_id', $tour->id);
-                })->ignore($departure->id)],
-                'end_date'   => ['required', 'date'],
+                'start_date' => [
+                    'required',
+                    'date',
+                    'after_or_equal:' . now()->addDays(7)->toDateString(),
+                    Rule::unique('departures')->where(function ($query) use ($tour) {
+                        return $query->where('tour_id', $tour->id);
+                    })->ignore($departure->id)
+                ],
+                'end_date' => ['required', 'date'],
                 'departure_time' => ['required'],
                 'price_adult' => ['required'],
                 'price_child' => ['required'],
@@ -117,8 +128,8 @@ class DepartureController extends Controller
                 ]);
             }
 
-            // dd($data);
             $departure->update($data);
+            event(new TourChanged($tour));
 
             alert('Thành công!', 'Cập nhật lịch khởi hành thành công.', 'success');
             return redirect()->route('departure.list', $tour->slug);
@@ -127,13 +138,14 @@ class DepartureController extends Controller
                 'capacity' => ['required']
             ]);
 
-            if ((int)$request->input('capacity') < (int)$departure->capacity) {
+            if ((int) $request->input('capacity') < (int) $departure->capacity) {
                 return back()->withInput()->withErrors([
                     'capacity' => 'Không thể giảm số lượng chỗ khi tour đã mở.'
                 ]);
             }
 
             $departure->update($data);
+            event(new TourChanged($tour));
 
             alert('Thành công!', 'Cập nhật lịch khởi hành thành công.', 'success');
             return redirect()->route('departure.list', $tour->slug);
@@ -151,10 +163,12 @@ class DepartureController extends Controller
 
             if ($request->action == 'cancel') {
                 $departure->update(['status' => 'cancelled']);
+                event(new TourChanged($tour));
             }
 
             if ($request->action == 'open') {
                 $departure->update(['status' => 'open']);
+                event(new TourChanged($tour));
             }
 
             alert('Thành công!', 'Cập nhật trạng thái thành công.', 'success');
@@ -164,9 +178,11 @@ class DepartureController extends Controller
         }
     }
 
-    public function destroy(Tour $tour, Departure $departure) {
+    public function destroy(Tour $tour, Departure $departure)
+    {
         if ($departure->booked == 0) {
             $departure->delete();
+            event(new TourChanged($tour));
 
             alert('Thành công!', 'Xóa lịch trình thành công.', 'success');
             return redirect()->back();

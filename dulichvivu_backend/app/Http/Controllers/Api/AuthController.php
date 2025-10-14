@@ -63,7 +63,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try {
-            $data = $request->only(['email', 'password', 'name', 'ip_address']);
+            $data = $request->only(['email', 'password', 'name']);
 
             $user = User::create($data);
             Mail::to($user->email)->send(new VerifyAccount($user));

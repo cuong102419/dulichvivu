@@ -1,6 +1,6 @@
 import PriceFilter from './PriceFilter';
 
-function Sidebar({ oneAreaChange, onRatingChange }) {
+function Sidebar({ oneAreaChange, onRatingChange, onPriceChange }) {
     const handleChange = (e) => {
         oneAreaChange(e.target.value);
     };
@@ -14,7 +14,7 @@ function Sidebar({ oneAreaChange, onRatingChange }) {
             <div className="widget widget-filter">
                 <h6 className="widget-title">Ngân sách</h6>
                 <div className="price-filter-wrap">
-                    <PriceFilter />
+                    <PriceFilter onPriceChange={onPriceChange}/>
                 </div>
             </div>
 

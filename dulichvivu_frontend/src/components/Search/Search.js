@@ -64,7 +64,7 @@ function Search({ onSearch }) {
                 </div>
                 <div className="search-button">
                     <button className="theme-btn" onClick={handleSubmit}>
-                        <span data-hover="Search">Search</span>
+                        <span data-hover="Tìm Kiếm">Tìm kiếm</span>
                         <i className="far fa-search"></i>
                     </button>
                 </div>

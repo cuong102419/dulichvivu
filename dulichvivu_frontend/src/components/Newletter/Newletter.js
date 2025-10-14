@@ -12,20 +12,16 @@ function Newletter() {
                     <div className="col-lg-6">
                         <div className="newsletter-content-part text-white rmb-55">
                             <div className="section-title counter-text-wrap mb-45">
-                                <h2>Subscribe Our Newsletter to Get more offer & Tips</h2>
-                                <p>
-                                    One site <span className="count-text plus">34500</span> most popular experience
-                                    you’ll remember
-                                </p>
+                                <h2>Đăng ký bản tin của chúng tôi để nhận thêm ưu đãi và mẹo</h2>
                             </div>
                             <form className="newsletter-form mb-15" action="#">
-                                <input id="news-email" type="email" placeholder="Email Address" required />
+                                <input id="news-email" type="email" placeholder="Địa chỉ Email" required />
                                 <button type="submit" className="theme-btn bgc-secondary style-two">
-                                    <span data-hover="Subscribe">Subscribe</span>
+                                    <span data-hover="Đăng Ký">Đăng Ký</span>
                                     <i className="fal fa-arrow-right"></i>
                                 </button>
                             </form>
-                            <p>No credit card requirement. No commitments</p>
+                            <p>Không yêu cầu thẻ tín dụng. Không cam kết</p>
                         </div>
                         <div className="newsletter-bg-image">
                             <img src="/assets/images/newsletter/newsletter-bg-image.png" alt="Newsletter" />

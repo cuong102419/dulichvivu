@@ -5,31 +5,42 @@ import Review from './components/Review';
 import Title from '~/components/Title';
 import Intinerary from './components/Itinerary';
 import { TitleBanner } from './components/Title';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getTour } from '~/services/getTourService';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Regulation from './components/Regulation';
 import Sidebar from './components/Sidebar';
+import useRealtime from '~/hooks/useRealtime';
+import { debounce } from 'lodash';
 
 function Detail() {
     const [tour, setTour] = useState(null);
     const [images, setImages] = useState([]);
     const [timelines, setTimelines] = useState([]);
     const [departures, setDepartures] = useState([]);
-    const {slug} = useParams();
+    const { slug } = useParams();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchTour = async () => {
+    const fetchTour = useCallback(async () => {
+        try {
             const data = await getTour(slug);
-            
+
             setTour(data.data.tour);
             setImages(data.data.image_url);
             setTimelines(data.data.timelines);
             setDepartures(data.data.departures);
+        } catch (error) {
+            console.error(error);
+            setTour(null)
+            navigate('/error');
         }
+    }, [slug, navigate]);
 
+    useEffect(() => {
         fetchTour();
-    }, [slug])
+    }, [fetchTour]);
+
+    useRealtime('tours', 'TourChanged', debounce(fetchTour, 1000));
 
     return (
         <>
@@ -40,7 +51,7 @@ function Detail() {
             <Gallery images={images} />
 
             <Header title={tour?.title} code={tour?.code} rate={tour?.reviews} />
-        
+
             <section className="tour-details-page pb-100">
                 <div className="container">
                     <div className="row">

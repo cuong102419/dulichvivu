@@ -1,12 +1,30 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactSlider from 'react-slider';
 import styles from './PriceFilter.module.scss';
+import { debounce } from 'lodash';
 
 const cx = classNames.bind(styles);
 
-const PriceFilter = () => {
-    const [range, setRange] = useState([0, 200]);
+const PriceFilter = ({ onPriceChange }) => {
+    const [range, setRange] = useState([0, 100]);
+
+    const debouncedChange = useRef(
+        debounce((value) => {
+            onPriceChange && onPriceChange(value);
+        }, 500),
+    ).current;
+
+    const handleChange = (value) => {
+        setRange(value);
+        debouncedChange(value);
+    };
+
+    useEffect(() => {
+        return () => {
+            debouncedChange.cancel();
+        };
+    }, [debouncedChange]);
 
     return (
         <div className={cx('price-filter')}>
@@ -15,9 +33,9 @@ const PriceFilter = () => {
                 thumbClassName={cx('custom-thumb')}
                 trackClassName={cx('custom-track')}
                 value={range}
-                onChange={setRange}
+                onChange={handleChange}
                 min={0}
-                max={200}
+                max={100}
                 minDistance={1}
                 pearling
             />

@@ -22,7 +22,7 @@ class BookingController extends Controller
         $code = $request->get('code');
         $date = $request->get('date');
 
-        $tour = Tour::where('code', $code)->select('id', 'code', 'title', 'area')->firstOrFail();
+        $tour = Tour::where('code', $code)->where('status', 'active')->select('id', 'code', 'title', 'area')->firstOrFail();
 
         $minDate = $tour->area === 'international'
             ? Carbon::now()->addDays(30)->toDateString()
