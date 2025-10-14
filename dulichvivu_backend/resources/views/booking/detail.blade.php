@@ -104,7 +104,7 @@
                                     @if ($booking->payment_status == 'refunded')
                                         <h4 class="mt-3 text-primary">Đã hoàn tiền</h4>
                                     @endif
-                                    @if ($booking->payment_status == 'paid' && $booking->start_date instanceof \Carbon\Carbon > now())
+                                    @if ($booking->payment_status == 'paid' && $booking->start_date > now())
                                         <div class="mt-3">
                                             <form action="{{ route('booking.refund', $booking->id) }}" method="post">
                                                 @csrf
@@ -139,7 +139,7 @@
                                         <button class="btn btn-primary" name="action" value="confirm" onclick="return confirm('Bạn có chắc chắn muốn xác nhận?')">Xác nhận</button>
                                     @endif
 
-                                    @if ($booking->status != 'canceled' && $booking->start_date instanceof \Carbon\Carbon > now())
+                                    @if ($booking->status != 'canceled' && $booking->start_date > now())
                                         <button class="btn btn-danger" name="action" value="cancel" onclick="return confirm('Bạn có chắc chắn muốn hủy?')">Hủy</button>
                                     @endif
                                 </form>

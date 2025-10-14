@@ -14,8 +14,9 @@ class UserController extends Controller
         return view('user.list', compact('users'));
     }
 
-    public function status(Request $request, User $user) {
-        if($request->input('action') == 'active') {
+    public function status(Request $request, User $user)
+    {
+        if ($request->input('action') == 'active') {
             $user->is_active = 'yes';
             $user->save();
 
@@ -23,7 +24,7 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        if($request->input('action') == 'ban') {
+        if ($request->input('action') == 'ban') {
             $user->status = 'banned';
             $user->save();
 
@@ -31,7 +32,7 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        if($request->input('action') == 'unban') {
+        if ($request->input('action') == 'unban') {
             $user->status = null;
             $user->save();
 
@@ -39,7 +40,11 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        if($request->input('action') == 'delete') {
+        if ($request->input('action') == 'delete') {
+            if ($user->status != 'banned') {
+                alert('Thất bại', 'Xóa tài khoản không thành công, bạn cần khóa tài khoản trước.', 'error');
+                return redirect()->back();
+            }
             $user->delete();
 
             alert('Thành công', 'Xóa tài khoản thành công.', 'success');
@@ -59,6 +64,5 @@ class UserController extends Controller
         } else {
             return null;
         }
-
     }
 }

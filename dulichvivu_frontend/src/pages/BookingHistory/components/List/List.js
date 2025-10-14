@@ -92,7 +92,7 @@ function List() {
                                 </span>
                             </div>
                             <div>
-                                {tour.reviewed === 0 ? (
+                                {tour.reviewed === 0 && tour.status === 'closed' ? (
                                     <Link className="theme-btn" to={`/rating/${tour.code}`}>
                                         Đánh giá
                                     </Link>

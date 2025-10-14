@@ -151,6 +151,7 @@ class BookingController extends Controller
                     'tours.destination',
                     'departures.price_adult',
                     'departures.start_date',
+                    'departures.status',
                     DB::raw('MIN(images.image_url) as image_url'),
                     DB::raw('CASE WHEN COUNT(reviews.id) > 0 THEN 1 ELSE 0 END as reviewed')
                 )
